@@ -12,6 +12,16 @@ from asgiref.sync import async_to_sync
 logger = logging.getLogger(__name__)
 
 def broadcast_update(action_type, data):
+    """
+    Broadcasts updates to all connected WebSocket clients
+    
+    Args:
+        action_type (str): Type of action ('card_update' or 'delete')
+        data (dict): Card data to broadcast
+        
+    Returns:
+        None
+    """
     channel_layer = get_channel_layer()
     async_to_sync(channel_layer.group_send)(
         "gym_cards",
@@ -26,6 +36,30 @@ def broadcast_update(action_type, data):
 
 @csrf_exempt
 def get_gym_cards(request):
+    """
+    Retrieves all gym cards from database
+    
+    Args:
+        request: HTTP request object
+        
+    Returns:
+        JsonResponse: List of gym cards with their details
+        {
+            'gym_cards': [
+                {
+                    'id': int,
+                    'Title': str,
+                    'Description': str,
+                    'DateAdded': datetime,
+                    'ExpirationDate': datetime,
+                    'Status': bool,
+                    'Priority': int,
+                    'IsExpired': bool
+                },
+                ...
+            ]
+        }
+    """
     try:
         gym_cards = GymCard.objects.all()
         gym_cards_data = []
@@ -58,6 +92,28 @@ def get_gym_cards(request):
 
 @csrf_exempt
 def create_gym_card(request):
+    """
+    Creates a new gym card
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - title: str
+            - description: str
+            - expiration_date: datetime
+            - priority: int (optional)
+            
+    Returns:
+        JsonResponse: Created card details or error message
+        Success: {
+            'status': 'success',
+            'message': str,
+            'card': dict with card details
+        }
+        Error: {
+            'status': 'error',
+            'message': str
+        }
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -133,6 +189,18 @@ def create_gym_card(request):
 
 @csrf_exempt
 def delete_gym_card(request):
+    """
+    Deletes a gym card by ID
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - id: int (card ID)
+            
+    Returns:
+        JsonResponse: Success or error message
+        Success: {'status': 'success', 'message': 'Gym card deleted'}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -153,6 +221,20 @@ def delete_gym_card(request):
 
 @csrf_exempt
 def update_gym_card(request):
+    """
+    Updates gym card status and priority
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - id: int (card ID)
+            - status: str ('active', 'expired', 'deactivated')
+            - priority: int (optional)
+            
+    Returns:
+        JsonResponse: Success or error message
+        Success: {'status': 'success', 'message': str}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -225,6 +307,18 @@ def update_gym_card(request):
 
 @csrf_exempt
 def sort_gym_card(request):
+    """
+    Sorts gym cards by specified criteria
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - sort_by: str ('date', 'status', or 'priority')
+            
+    Returns:
+        JsonResponse: Sorted list of gym cards or error message
+        Success: {'gym_cards': [sorted card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -259,6 +353,19 @@ def sort_gym_card(request):
 
 @csrf_exempt
 def search_gym_card(request):
+    """
+    Searches gym cards by specified criteria
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - search_by: str (field name)
+            - search_term: str (search value)
+            
+    Returns:
+        JsonResponse: Matching gym cards or error message
+        Success: {'gym_cards': [matching card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -290,6 +397,18 @@ def search_gym_card(request):
 
 @csrf_exempt
 def get_gym_card(request):
+    """
+    Retrieves a single gym card by ID
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - id: int (card ID)
+            
+    Returns:
+        JsonResponse: Card details or error message
+        Success: {card object with all details}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -314,6 +433,18 @@ def get_gym_card(request):
 
 @csrf_exempt
 def get_gym_card_by_id(request):
+    """
+    Alternative method to retrieve a single gym card by ID
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - id: int (card ID)
+            
+    Returns:
+        JsonResponse: Card details or error message
+        Success: {card object with all details}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -338,6 +469,18 @@ def get_gym_card_by_id(request):
 
 @csrf_exempt
 def get_gym_card_by_status(request):
+    """
+    Retrieves gym cards filtered by status
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - status: str/bool (card status)
+            
+    Returns:
+        JsonResponse: List of matching cards or error message
+        Success: {'gym_cards': [matching card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -363,6 +506,18 @@ def get_gym_card_by_status(request):
 
 @csrf_exempt
 def get_gym_card_by_priority(request):
+    """
+    Retrieves gym cards filtered by priority level
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - priority: int
+            
+    Returns:
+        JsonResponse: List of matching cards or error message
+        Success: {'gym_cards': [matching card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -388,6 +543,18 @@ def get_gym_card_by_priority(request):
 
 @csrf_exempt
 def get_gym_card_by_date(request):
+    """
+    Retrieves gym cards filtered by date added
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - date: datetime
+            
+    Returns:
+        JsonResponse: List of matching cards or error message
+        Success: {'gym_cards': [matching card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -413,6 +580,18 @@ def get_gym_card_by_date(request):
 
 @csrf_exempt
 def mark_card_expired(request):
+    """
+    Marks a gym card as expired
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - id: int (card ID)
+            
+    Returns:
+        JsonResponse: Success or error message
+        Success: {'status': 'success', 'message': 'Card marked as expired'}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -449,4 +628,13 @@ def mark_card_expired(request):
     }, status=405)
 
 def index(request):
+    """
+    Renders the main index page
+    
+    Args:
+        request: HTTP request object
+        
+    Returns:
+        Rendered index.html template
+    """
     return render(request, 'index.html')
