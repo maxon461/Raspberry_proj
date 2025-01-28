@@ -31,6 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['192.168.1.104', '127.0.0.1']
 
+# Add this setting
+APPEND_SLASH = False
 
 # Application definition
 
@@ -62,7 +64,7 @@ ROOT_URLCONF = 'djangoproj.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'my-react-app/build')],
+        'DIRS': [os.path.join(BASE_DIR, 'my-react-app', 'build')],  # Updated path
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,8 +127,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'my-react-app/build/static')
+    os.path.join(BASE_DIR, 'my-react-app', 'build', 'static')
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -159,8 +163,6 @@ DATABASES = {
         'PORT': '3306',  # Default MySQL port is 3306
     }
 }
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
 
