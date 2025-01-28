@@ -64,7 +64,7 @@ export default function Check({ card }) {
                 
                 // Send expiration update to server
                 const csrfToken = getCsrfToken();
-                Axios.post('http://127.0.0.1:8000/mark_card_expired/', {
+                Axios.post('http://127.0.0.1:8000/api/mark_card_expired/', {
                     'id': card.id
                 }, {
                     headers: {
@@ -103,7 +103,7 @@ export default function Check({ card }) {
     const handleStatusChange = (newStatus) => {
         const csrfToken = getCsrfToken();
 
-        Axios.post('http://127.0.0.1:8000/update_gym_card/', {
+        Axios.post('http://127.0.0.1:8000/api/update_gym_card/', {
             'id': card.id,
             'status': newStatus,
             'priority': card.Priority,

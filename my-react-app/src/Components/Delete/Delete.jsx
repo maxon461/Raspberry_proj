@@ -9,7 +9,7 @@ const Delete = ({ card, showDots = true, className = '' }) => {
       return;
     }
 
-    Axios.post('http://127.0.0.1:8000/delete_gym_card/', {
+    Axios.post('http://127.0.0.1:8000/api/delete_gym_card/', {
       id: card.id
     })
     .then(response => {

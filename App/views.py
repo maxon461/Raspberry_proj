@@ -6,8 +6,23 @@ import logging
 from django.db import connection
 from App.models import GymCard
 from django.utils import timezone
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 logger = logging.getLogger(__name__)
+
+def broadcast_update(action_type, data):
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        "gym_cards",
+        {
+            "type": "broadcast_update",
+            "data": json.dumps({
+                'type': action_type,
+                'card': data
+            })
+        }
+    )
 
 @csrf_exempt
 def get_gym_cards(request):
@@ -57,26 +72,55 @@ def create_gym_card(request):
                     'message': 'Missing required fields'
                 }, status=400)
 
-            gym_card = GymCard.objects.create(
-                title=title,
-                description=description,
-                expiration_date=expiration_date,
-                status=True,
-                priority=priority
-            )
+            try:
+                gym_card = GymCard.objects.create(
+                    title=title,
+                    description=description,
+                    expiration_date=expiration_date,
+                    status='true',  # Changed from 'true' to 'active'
+                    priority=priority,
+                    is_expired=False
+                )
 
-            return JsonResponse({
-                'status': 'success',
-                'message': 'Gym card created successfully',
-                'id': gym_card.id
-            })
+                # Prepare card data for broadcast
+                card_data = {
+                    'id': gym_card.id,
+                    'Title': gym_card.title,
+                    'Description': gym_card.description,
+                    'Status': gym_card.status,
+                    'DateAdded': gym_card.date_added.isoformat(),
+                    'ExpirationDate': gym_card.expiration_date,
+                    'Priority': gym_card.priority,
+                    'IsExpired': gym_card.is_expired
+                }
 
-        except json.JSONDecodeError:
+                # Broadcast the creation
+                try:
+                    broadcast_update('card_update', card_data)
+                except Exception as e:
+                    logger.error(f"Broadcast error: {e}")
+
+                return JsonResponse({
+                    'status': 'success',
+                    'message': 'Gym card created successfully',
+                    'card': card_data
+                })
+
+            except Exception as e:
+                logger.error(f"Database error: {e}")
+                return JsonResponse({
+                    'status': 'error',
+                    'message': str(e)
+                }, status=500)
+
+        except json.JSONDecodeError as e:
+            logger.error(f"JSON decode error: {e}")
             return JsonResponse({
                 'status': 'error',
-                'message': 'Invalid JSON'
+                'message': 'Invalid JSON format'
             }, status=400)
         except Exception as e:
+            logger.error(f"Unexpected error: {e}")
             return JsonResponse({
                 'status': 'error',
                 'message': str(e)
@@ -97,6 +141,10 @@ def delete_gym_card(request):
             if card_id:
                 gym_card = GymCard.objects.get(id=card_id)
                 gym_card.delete()
+                
+                # Broadcast deletion
+                broadcast_update('delete', {'id': card_id})
+                
                 return JsonResponse({'status': 'success', 'message': 'Gym card deleted'})
             return JsonResponse({'status': 'error', 'message': 'Gym card not found'}, status=404)
         except json.JSONDecodeError:
@@ -128,6 +176,29 @@ def update_gym_card(request):
                         gym_card.priority = data['priority']
                         
                     gym_card.save()
+                    
+                    # Broadcast the update
+                    channel_layer = get_channel_layer()
+                    async_to_sync(channel_layer.group_send)(
+                        "gym_cards",
+                        {
+                            "type": "broadcast_update",
+                            "data": json.dumps({
+                                'type': 'card_update',
+                                'card': {
+                                    'id': gym_card.id,
+                                    'Title': gym_card.title,
+                                    'Description': gym_card.description,
+                                    'Status': gym_card.status,
+                                    'DateAdded': gym_card.date_added.isoformat(),
+                                    'ExpirationDate': gym_card.expiration_date.isoformat(),
+                                    'Priority': gym_card.priority,
+                                    'IsExpired': gym_card.is_expired
+                                }
+                            })
+                        }
+                    )
+                    
                     return JsonResponse({
                         'status': 'success',
                         'message': f'Gym card {status}'

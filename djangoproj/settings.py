@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-7fb7%t@xtbwp4r3&eu(mk*9smf)i_up7na^fzl9v^$_c^c!ux)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.104', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Add this setting
 APPEND_SLASH = False
@@ -46,17 +46,19 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'App',
+    'channels',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Move CORS middleware to top
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add WhiteNoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'djangoproj.urls'
@@ -79,6 +81,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoproj.wsgi.application'
 
+# Add Channels configuration
+ASGI_APPLICATION = 'djangoproj.asgi.application'
+
+# Simplify Channel Layers configuration
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    } if DEBUG else {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    }
+}
+
+# Use SQLite for development
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -127,10 +151,17 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'my-react-app', 'build', 'static')
+    os.path.join(BASE_DIR, 'my-react-app', 'build'),
+    os.path.join(BASE_DIR, 'my-react-app', 'build', 'static'),
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# WhiteNoise configuration
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -151,31 +182,24 @@ LOGGING = {
     },
 }
 
+# Update CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  # MySQL database engine
-        'NAME': 'db_tasks',  # Name of the database
-        'USER': 'bogdan',  # Database username
-        'PASSWORD': '1',  # Database password
-        'HOST': 'localhost',  # Database host, usually 'localhost'
-        'PORT': '3306',  # Default MySQL port is 3306
-    }
-}
-
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
-
 CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
 
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:*',
+    'http://192.168.*.*:*',
+    'http://127.0.0.1:*',
+]
 
-CSRF_COOKIE_DOMAIN = 'http://192.168.56.1:3000' 
-
-CSRF_COOKIE_PATH = 'http://localhost:3000'
-
-SESSION_COOKIE_DOMAIN = 'http://localhost:3000'
-
-CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN'
+# Security settings for development
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = False
+CSRF_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_DOMAIN = None
+SESSION_COOKIE_DOMAIN = None
 
 CORS_ALLOW_HEADERS = [
     'X-CSRFTOKEN',
@@ -189,3 +213,14 @@ CORS_ALLOW_HEADERS = [
 CSRF_USE_SESSIONS = False
 
 CSRF_COOKIE_AGE = 8 * 3600
+
+# Security headers
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+
+# Remove or comment out these settings
+# CSP_DEFAULT_SRC = ...
+# CSP_STYLE_SRC = ...
+# CSP_SCRIPT_SRC = ...
+
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'my-react-app', 'build')

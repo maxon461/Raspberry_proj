@@ -34,7 +34,7 @@ export default function Create() {
         e.preventDefault();
         const csrfToken = getCsrfToken();
 
-        Axios.post('http://127.0.0.1:8000/create_gym_card/', formData, {  // Note the trailing slash
+        Axios.post('http://127.0.0.1:8000/api/create_gym_card/', formData, {  // Note the trailing slash
             headers: {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrfToken

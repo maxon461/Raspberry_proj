@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Axios from 'axios';
 import CurrentTime from '../CurrentTime/CurrentTime';
 import Check from '../Check/Check';
@@ -8,46 +8,80 @@ import './MainPage.css';
 
 const MainPage = () => {
   const [gymCards, setGymCards] = useState([]);
+  const wsRef = useRef(null);
   const [isToggled, setIsToggled] = useState(() => {
     const savedState = localStorage.getItem('toggleState');
     return savedState === 'true';
   });
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    let mounted = true;
+  const fetchGymCards = async () => {
+    try {
+      const response = await Axios.get('http://127.0.0.1:8000/api/get_gym_cards/');
+      if (response.data && Array.isArray(response.data.gym_cards)) {
+        setGymCards(response.data.gym_cards);
+      }
+    } catch (error) {
+      console.error('Error fetching gym cards:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    const fetchGymCards = async () => {
+  useEffect(() => {
+    fetchGymCards();
+
+    // WebSocket setup
+    wsRef.current = new WebSocket('ws://127.0.0.1:8000/ws/gym_cards/');
+    
+    wsRef.current.onopen = () => {
+      console.log('WebSocket Connected');
+    };
+
+    wsRef.current.onmessage = (event) => {
       try {
-        const response = await Axios.get('http://127.0.0.1:8000/get_gym_cards/');
-        if (mounted && response.data && Array.isArray(response.data.gym_cards)) {
-          const formattedCards = response.data.gym_cards.map(card => ({
-            id: card.id,
-            Title: card.Title,
-            Description: card.Description,
-            Status: card.Status || 'inactive',
-            Priority: card.Priority || 0,
-            ExpirationDate: card.ExpirationDate,
-            DateAdded: card.DateAdded,
-            IsExpired: card.IsExpired
-          }));
-          setGymCards(formattedCards);
+        const data = JSON.parse(event.data);
+        if (data.type === 'card_update') {
+          setGymCards(prevCards => {
+            const updatedCards = [...prevCards];
+            const index = updatedCards.findIndex(card => card.id === data.card.id);
+            
+            if (index !== -1) {
+              updatedCards[index] = data.card;
+            } else {
+              updatedCards.push(data.card);
+            }
+            
+            return updatedCards;
+          });
+        } else if (data.type === 'delete') {
+          setGymCards(prevCards => 
+            prevCards.filter(card => card.id !== data.id)
+          );
         }
       } catch (error) {
-        if (mounted) {
-          console.error('Error fetching gym cards:', error);
-          setGymCards([]);
-        }
-      } finally {
-        if (mounted) {
-          setIsLoading(false);
-        }
+        console.error('Error processing WebSocket message:', error);
       }
     };
 
-    fetchGymCards();
+    wsRef.current.onerror = (error) => {
+      console.error('WebSocket error:', error);
+    };
+
+    // Reconnection logic
+    wsRef.current.onclose = () => {
+      console.log('WebSocket disconnected. Reconnecting...');
+      setTimeout(() => {
+        if (!wsRef.current || wsRef.current.readyState === WebSocket.CLOSED) {
+          window.location.reload();
+        }
+      }, 1000);
+    };
+
     return () => {
-      mounted = false;
+      if (wsRef.current) {
+        wsRef.current.close();
+      }
     };
   }, []);
 

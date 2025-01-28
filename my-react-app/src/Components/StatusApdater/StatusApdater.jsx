@@ -9,7 +9,7 @@ const StatusApdater = ({ card, newStatus, className = '' }) => {
       return;
     }
 
-    Axios.post('http://127.0.0.1:8000/update_gym_card/', {
+    Axios.post('http://127.0.0.1:8000/api/update_gym_card/', {
       id: card.id,
       status: newStatus,
       priority: card.Priority

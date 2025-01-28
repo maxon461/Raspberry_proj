@@ -3,38 +3,53 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 import json
 import logging
-from django.db import connection
+from django.db import connection, transaction
 from App.models import GymCard
 from django.utils import timezone
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 logger = logging.getLogger(__name__)
+
+async def broadcast_update(action, data):
+    channel_layer = get_channel_layer()
+    await channel_layer.group_send(
+        "gym_cards",
+        {
+            "type": "gym_card.update",  # Changed from "gym_card_update"
+            "data": {
+                "action": action,
+                "data": data
+            }
+        }
+    )
 
 @csrf_exempt
 def get_gym_cards(request):
     try:
-        gym_cards = GymCard.objects.all()
-        gym_cards_data = []
+        with transaction.atomic():
+            gym_cards = GymCard.objects.select_for_update().all()
+            gym_cards_data = []
 
-        for card in gym_cards:
-            # Check if card is expired
-            if not card.is_expired:
-                now = timezone.now()
-                expiration = card.expiration_date
-                if now > expiration:
-                    card.status = False
-                    card.is_expired = True
-                    card.save()
+            for card in gym_cards:
+                if not card.is_expired:
+                    now = timezone.now()
+                    expiration = card.expiration_date
+                    if now > expiration:
+                        card.status = False
+                        card.is_expired = True
+                        card.save()
 
-            gym_cards_data.append({
-                'id': card.id,
-                'Title': card.title,
-                'Description': card.description,
-                'DateAdded': card.date_added,
-                'ExpirationDate': card.expiration_date,
-                'Status': card.status,
-                'Priority': card.priority,
-                'IsExpired': card.is_expired,
-            })
+                gym_cards_data.append({
+                    'id': card.id,
+                    'Title': card.title,
+                    'Description': card.description,
+                    'DateAdded': card.date_added,
+                    'ExpirationDate': card.expiration_date,
+                    'Status': card.status,
+                    'Priority': card.priority,
+                    'IsExpired': card.is_expired,
+                })
 
         return JsonResponse({'gym_cards': gym_cards_data}, safe=False)
 
@@ -64,6 +79,16 @@ def create_gym_card(request):
                 status=True,
                 priority=priority
             )
+
+            # Broadcast the creation
+            async_to_sync(broadcast_update)("create", {
+                'id': gym_card.id,
+                'title': gym_card.title,
+                'description': gym_card.description,
+                'expiration_date': gym_card.expiration_date,
+                'status': gym_card.status,
+                'priority': gym_card.priority
+            })
 
             return JsonResponse({
                 'status': 'success',
@@ -97,6 +122,12 @@ def delete_gym_card(request):
             if card_id:
                 gym_card = GymCard.objects.get(id=card_id)
                 gym_card.delete()
+
+                # Broadcast the deletion
+                async_to_sync(broadcast_update)("delete", {
+                    'id': card_id
+                })
+
                 return JsonResponse({'status': 'success', 'message': 'Gym card deleted'})
             return JsonResponse({'status': 'error', 'message': 'Gym card not found'}, status=404)
         except json.JSONDecodeError:
@@ -112,31 +143,35 @@ def update_gym_card(request):
             status = data.get('status')
 
             if card_id and status is not None:
-                try:
-                    gym_card = GymCard.objects.get(id=card_id)
-                    # Set status and handle related fields
-                    if status == 'active':
+                with transaction.atomic():
+                    try:
+                        gym_card = GymCard.objects.select_for_update().get(id=card_id)
+                        # Set status immediately
                         gym_card.status = status
-                        gym_card.is_expired = False  # Reset expired status
-                    elif status in ['expired', 'deactivated']:
-                        gym_card.status = status
-                        gym_card.is_expired = True
-                    else:
-                        gym_card.status = status
-
-                    if 'priority' in data:
-                        gym_card.priority = data['priority']
+                        gym_card.is_expired = status in ['expired', 'deactivated']
                         
-                    gym_card.save()
-                    return JsonResponse({
-                        'status': 'success',
-                        'message': f'Gym card {status}'
-                    })
-                except GymCard.DoesNotExist:
-                    return JsonResponse({
-                        'status': 'error',
-                        'message': 'Gym card not found'
-                    }, status=404)
+                        if 'priority' in data:
+                            gym_card.priority = data['priority']
+                            
+                        gym_card.save()
+                        
+                        # Broadcast with complete data
+                        async_to_sync(broadcast_update)("update", {
+                            'id': gym_card.id,
+                            'status': gym_card.status,
+                            'is_expired': gym_card.is_expired,
+                            'priority': gym_card.priority
+                        })
+                        
+                        return JsonResponse({
+                            'status': 'success',
+                            'message': f'Gym card {status}'
+                        })
+                    except GymCard.DoesNotExist:
+                        return JsonResponse({
+                            'status': 'error',
+                            'message': 'Gym card not found'
+                        }, status=404)
 
             return JsonResponse({
                 'status': 'error',
@@ -348,20 +383,30 @@ def mark_card_expired(request):
             card_id = data.get('id')
             
             if card_id:
-                try:
-                    gym_card = GymCard.objects.get(id=card_id)
-                    gym_card.status = False
-                    gym_card.is_expired = True
-                    gym_card.save()
-                    return JsonResponse({
-                        'status': 'success',
-                        'message': 'Card marked as expired'
-                    })
-                except GymCard.DoesNotExist:
-                    return JsonResponse({
-                        'status': 'error',
-                        'message': 'Card not found'
-                    }, status=404)
+                with transaction.atomic():
+                    try:
+                        gym_card = GymCard.objects.select_for_update().get(id=card_id)
+                        gym_card.status = False
+                        gym_card.is_expired = True
+                        gym_card.save()
+
+                        # Broadcast the update
+                        async_to_sync(broadcast_update)("update", {
+                            'id': gym_card.id,
+                            'status': gym_card.status,
+                            'is_expired': gym_card.is_expired,
+                            'priority': gym_card.priority
+                        })
+
+                        return JsonResponse({
+                            'status': 'success',
+                            'message': 'Card marked as expired'
+                        })
+                    except GymCard.DoesNotExist:
+                        return JsonResponse({
+                            'status': 'error',
+                            'message': 'Card not found'
+                        }, status=404)
             
             return JsonResponse({
                 'status': 'error',
