@@ -1,0 +1,121 @@
+div.info-container {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  div.info-container h3 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  
+  div.info-container p {
+    margin: 5px 0;
+  }
+  
+  div.info-container .details {
+    margin-top: 15px;
+    font-style: italic;
+    text-align: center;
+    color: #555;
+  }
+
+  div.info-container .confirmation-button {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  div.info-container .confirmation-button:hover {
+    background-color: #45a049;
+  }
+
+.confirmation-buttons {
+    display: flex;
+    justify-content: space-between;
+    height: auto; /* Adjust height to fit buttons */
+}
+
+.yes-button, .no-button {
+    position: static;
+    width: 48%; /* Adjust width to fit side by side */
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.yes-button:hover, .no-button:hover {
+    opacity: 1;
+    z-index: 2;
+}
+
+.translucent-button {
+    background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
+    border: 1px solid rgba(255, 255, 255, 0.7); /* Slightly more opaque border */
+    color: black;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.translucent-button:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Increase opacity on hover */
+}
+
+.message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.info-container.done {
+    background-color: #d4edda; 
+    border-color: #c3e6cb; 
+}
+
+.info-container.not-done {
+    background-color: #f8d7da;
+    border-color: #f5c6cb; 
+}
+.info-container.expiring {
+  background-color: #c4a600; 
+  border-color: #ffdb12; 
+}
+
+.info-container.in-progress {
+  background-color: #abf5ff; 
+  border-color: #12efff; 
+}
+.info-container.expired {
+  background-color: #7e000a; 
+  border-color: #7e0303; 
+}
+.info-container{
+  background-color: #ffffff; 
+  border-color: #000000; 
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,144 @@
+{
+    "ToDoList": [
+      {
+        "Title": "Finish Project Report",
+        "About": "Complete the final report for the marketing project.",
+        "DateAdded": "2025-01-12",
+        "Deadline": "2025-01-15",
+        "Status": "false"
+      },
+      {
+        "Title": "Team Meeting",
+        "About": "Weekly sync-up with the development team.",
+        "DateAdded": "2025-01-11",
+        "Deadline": "2025-01-13",
+        "Status": "false"
+      },
+      {
+        "Title": "Grocery Shopping",
+        "About": "Buy groceries for the week.",
+        "DateAdded": "2025-01-10",
+        "Deadline": "2025-01-12",
+        "Status": "false"
+      },
+      {
+        "Title": "Doctor's Appointment",
+        "About": "Visit Dr. Smith for a routine check-up.",
+        "DateAdded": "2025-01-09",
+        "Deadline": "2025-01-14",
+        "Status": "false"
+      },
+      {
+        "Title": "Plan Birthday Party",
+        "About": "Organize a birthday party for Sarah.",
+        "DateAdded": "2025-01-08",
+        "Deadline": "2025-01-18",
+        "Status": "false"
+      },
+      {
+        "Title": "Pay Utility Bills",
+        "About": "Settle electricity and water bills for the month.",
+        "DateAdded": "2025-01-07",
+        "Deadline": "2023-01-15",
+        "Status": "false"
+      },
+      {
+        "Title": "Research New Laptop",
+        "About": "Look for a new laptop for work and personal use.",
+        "DateAdded": "2025-01-06",
+        "Deadline": "2025-01-20",
+        "Status": "false"
+      },
+      {
+        "Title": "Submit Tax Documents",
+        "About": "Prepare and submit necessary tax documentation.",
+        "DateAdded": "2025-01-05",
+        "Deadline": "2025-01-31",
+        "Status": "false"
+      },
+      {
+        "Title": "Renew Driver's License",
+        "About": "Complete the process to renew the license before expiry.",
+        "DateAdded": "2025-01-04",
+        "Deadline": "2025-02-01",
+        "Status": "false"
+      },
+      {
+        "Title": "Schedule Car Service",
+        "About": "Book an appointment for car maintenance.",
+        "DateAdded": "2025-01-03",
+        "Deadline": "2025-01-15",
+        "Status": "false"
+      },
+      {
+        "Title": "Prepare Presentation",
+        "About": "Create slides for the upcoming client meeting.",
+        "DateAdded": "2025-01-02",
+        "Deadline": "2025-01-14",
+        "Status": "false"
+      },
+      {
+        "Title": "Clean Garage",
+        "About": "Organize and declutter the garage.",
+        "DateAdded": "2025-01-01",
+        "Deadline": "2025-01-16",
+        "Status": "false"
+      },
+      {
+        "Title": "Buy Wedding Gift",
+        "About": "Purchase a wedding gift for the ceremony on the 20th.",
+        "DateAdded": "2025-01-12",
+        "Deadline": "2025-01-19",
+        "Status": "false"
+      },
+      {
+        "Title": "Read New Book",
+        "About": "Finish reading the book purchased last month.",
+        "DateAdded": "2025-01-11",
+        "Deadline": "2025-01-30",
+        "Status": "false"
+      },
+      {
+        "Title": "Organize Digital Files",
+        "About": "Sort and organize files on the computer.",
+        "DateAdded": "2025-01-10",
+        "Deadline": "2025-01-25",
+        "Status": "false"
+      },
+      {
+        "Title": "Enroll in Online Course",
+        "About": "Find and enroll in a course to enhance programming skills.",
+        "DateAdded": "2025-01-09",
+        "Deadline": "2025-01-20",
+        "Status": "false"
+      },
+      {
+        "Title": "Prepare Tax Refund Forms",
+        "About": "Gather details for tax refunds and fill out forms.",
+        "DateAdded": "2025-01-08",
+        "Deadline": "2025-01-22",
+        "Status": "false"
+      },
+      {
+        "Title": "Plan Vacation",
+        "About": "Decide on the destination and book tickets for the vacation.",
+        "DateAdded": "2025-01-07",
+        "Deadline": "2025-02-05",
+        "Status": "false"
+      },
+      {
+        "Title": "Call Old Friends",
+        "About": "Reconnect with friends from school.",
+        "DateAdded": "2025-01-06",
+        "Deadline": "2025-01-15",
+        "Status": "false"
+      },
+      {
+        "Title": "Update Resume",
+        "About": "Revise the resume to include recent experience.",
+        "DateAdded": "2025-01-05",
+        "Deadline": "2025-01-20",
+        "Status": "false"
+      }
+    ]
+  }

@@ -1,0 +1,111 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  body {
+    padding: 0 20px; /* Add 20px padding to left and right */
+    font-family: 'Roboto', sans-serif;
+    background-color: #e0e0e0; /* Darker grey background */
+  }
+  
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .info-container {
+    border: 1px solid #ccc;
+    padding: 20px 2px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+
+  /* MainPage.css */
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tasks-table th,
+.tasks-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tasks-table th {
+  background-color: #f4f4f4;
+}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #dedede; /* Slightly lighter grey than body */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content-container {
+  margin-top: 10px;
+  width: 100%;
+  font-family: inherit;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  background: white; /* Keep cards white for contrast */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15); /* Slightly stronger shadow for better depth */
+  padding: 15px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}

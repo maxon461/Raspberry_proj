@@ -1,0 +1,48 @@
+.create {
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 400px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.create h1 {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.create form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create label {
+    margin: 5px 0;
+}
+
+.create input {
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.create button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create button:hover {
+    background-color: #45a049;
+}

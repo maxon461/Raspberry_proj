@@ -1,0 +1,47 @@
+/* MainPage.css */
+.tasks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .tasks-table th,
+  .tasks-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tasks-table th {
+    background-color: #f4f4f4;
+  }
+.sortable-header {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
+.sortable-header:hover {
+    background-color: #f0f0f0; /* Optional: adds hover effect */
+  }
+
+.expired {
+  background-color: #ffebee;
+  opacity: 0.8;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.activate-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.deactivate-btn {
+  background-color: #f44336;
+  color: white;
+}
