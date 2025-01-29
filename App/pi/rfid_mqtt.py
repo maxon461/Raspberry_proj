@@ -69,7 +69,7 @@ try:
             GPIO.output(led1, GPIO.LOW)
 
             try:
-                publish.single(MQTT_TOPIC, json.dumps({"card_id": "14656516846"}), hostname=MQTT_BROKER)
+                publish.single(MQTT_TOPIC, json.dumps({"card_id": f"card_id"}), hostname=MQTT_BROKER)
                 print(f"Read card: {card_id}")
             except Exception as e:
                 print(f"MQTT Error: {e}")
