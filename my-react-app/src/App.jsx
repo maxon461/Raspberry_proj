@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom/client'; // Correct import
 export default function App() {
   return (
     <BrowserRouter>
-      <h1>My ToDo List</h1>
+      <h1>My Gym</h1>
       <nav>
         <ul>
           <li>

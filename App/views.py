@@ -19,6 +19,16 @@ from django.conf import settings
 logger = logging.getLogger(__name__)
 
 def broadcast_update(action_type, data):
+    """
+    Broadcasts updates to all connected WebSocket clients
+    
+    Args:
+        action_type (str): Type of action ('card_update' or 'delete')
+        data (dict): Card data to broadcast
+        
+    Returns:
+        None
+    """
     channel_layer = get_channel_layer()
     async_to_sync(channel_layer.group_send)(
         "gym_cards",
@@ -79,8 +89,12 @@ def get_gym_cards(request):
                     'ExpirationDate': datetime,
                     'Status': bool,
                     'Priority': int,
+<<<<<<< HEAD
                     'IsExpired': bool,
                     'rfid_card_id': str
+=======
+                    'IsExpired': bool
+>>>>>>> eed2b618ab3d19c7842953eaeaad06e41437f171
                 },
                 ...
             ]
@@ -120,6 +134,7 @@ def get_gym_cards(request):
 @csrf_exempt
 def create_gym_card(request):
     """
+<<<<<<< HEAD
     Creates a new gym card in the database
     
     Args:
@@ -130,13 +145,27 @@ def create_gym_card(request):
                 'expiration_date': datetime,
                 'priority': int
             }
+=======
+    Creates a new gym card
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - title: str
+            - description: str
+            - expiration_date: datetime
+            - priority: int (optional)
+>>>>>>> eed2b618ab3d19c7842953eaeaad06e41437f171
             
     Returns:
         JsonResponse: Created card details or error message
         Success: {
             'status': 'success',
             'message': str,
+<<<<<<< HEAD
             'card': {card_details}
+=======
+            'card': dict with card details
+>>>>>>> eed2b618ab3d19c7842953eaeaad06e41437f171
         }
         Error: {
             'status': 'error',
@@ -432,6 +461,7 @@ def create_gym_card_with_page(request):
 @csrf_exempt
 def delete_gym_card(request):
     """
+<<<<<<< HEAD
     Deletes a gym card from the database
     
     Args:
@@ -450,6 +480,18 @@ def delete_gym_card(request):
             'status': 'error',
             'message': str
         }
+=======
+    Deletes a gym card by ID
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - id: int (card ID)
+            
+    Returns:
+        JsonResponse: Success or error message
+        Success: {'status': 'success', 'message': 'Gym card deleted'}
+        Error: {'status': 'error', 'message': str}
+>>>>>>> eed2b618ab3d19c7842953eaeaad06e41437f171
     """
     if request.method == 'POST':
         try:
@@ -530,6 +572,7 @@ def update_gym_card(request):
     
     Args:
         request: HTTP POST request with JSON body containing:
+<<<<<<< HEAD
             {
                 'id': int,
                 'status': str,
@@ -546,6 +589,16 @@ def update_gym_card(request):
             'status': 'error',
             'message': str
         }
+=======
+            - id: int (card ID)
+            - status: str ('active', 'expired', 'deactivated')
+            - priority: int (optional)
+            
+    Returns:
+        JsonResponse: Success or error message
+        Success: {'status': 'success', 'message': str}
+        Error: {'status': 'error', 'message': str}
+>>>>>>> eed2b618ab3d19c7842953eaeaad06e41437f171
     """
     if request.method == 'POST':
         try:
@@ -623,6 +676,18 @@ def update_gym_card(request):
 
 @csrf_exempt
 def sort_gym_card(request):
+    """
+    Sorts gym cards by specified criteria
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - sort_by: str ('date', 'status', or 'priority')
+            
+    Returns:
+        JsonResponse: Sorted list of gym cards or error message
+        Success: {'gym_cards': [sorted card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -657,6 +722,19 @@ def sort_gym_card(request):
 
 @csrf_exempt
 def search_gym_card(request):
+    """
+    Searches gym cards by specified criteria
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - search_by: str (field name)
+            - search_term: str (search value)
+            
+    Returns:
+        JsonResponse: Matching gym cards or error message
+        Success: {'gym_cards': [matching card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -690,6 +768,7 @@ def search_gym_card(request):
 @cache_page(5)  # Cache for 5 seconds
 def get_gym_card(request):
     """
+<<<<<<< HEAD
     Get gym card(s) from database with caching
     
     Methods:
@@ -697,6 +776,20 @@ def get_gym_card(request):
         POST: Returns specific card by ID in request body
     """
     if request.method == 'GET':
+=======
+    Retrieves a single gym card by ID
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - id: int (card ID)
+            
+    Returns:
+        JsonResponse: Card details or error message
+        Success: {card object with all details}
+        Error: {'status': 'error', 'message': str}
+    """
+    if request.method == 'POST':
+>>>>>>> eed2b618ab3d19c7842953eaeaad06e41437f171
         try:
             card_id = request.GET.get('id')
             cache_key = f'gym_card_{card_id}' if card_id else 'all_gym_cards'
@@ -767,6 +860,18 @@ def get_gym_card(request):
 
 @csrf_exempt
 def get_gym_card_by_id(request):
+    """
+    Alternative method to retrieve a single gym card by ID
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - id: int (card ID)
+            
+    Returns:
+        JsonResponse: Card details or error message
+        Success: {card object with all details}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -791,6 +896,18 @@ def get_gym_card_by_id(request):
 
 @csrf_exempt
 def get_gym_card_by_status(request):
+    """
+    Retrieves gym cards filtered by status
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - status: str/bool (card status)
+            
+    Returns:
+        JsonResponse: List of matching cards or error message
+        Success: {'gym_cards': [matching card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -816,6 +933,18 @@ def get_gym_card_by_status(request):
 
 @csrf_exempt
 def get_gym_card_by_priority(request):
+    """
+    Retrieves gym cards filtered by priority level
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - priority: int
+            
+    Returns:
+        JsonResponse: List of matching cards or error message
+        Success: {'gym_cards': [matching card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -841,6 +970,18 @@ def get_gym_card_by_priority(request):
 
 @csrf_exempt
 def get_gym_card_by_date(request):
+    """
+    Retrieves gym cards filtered by date added
+    
+    Args:
+        request: HTTP POST request with JSON body containing:
+            - date: datetime
+            
+    Returns:
+        JsonResponse: List of matching cards or error message
+        Success: {'gym_cards': [matching card objects]}
+        Error: {'status': 'error', 'message': str}
+    """
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
@@ -871,6 +1012,7 @@ def mark_card_expired(request):
     
     Args:
         request: HTTP POST request with JSON body containing:
+<<<<<<< HEAD
             {
                 'id': int
             }
@@ -885,6 +1027,14 @@ def mark_card_expired(request):
             'status': 'error',
             'message': str
         }
+=======
+            - id: int (card ID)
+            
+    Returns:
+        JsonResponse: Success or error message
+        Success: {'status': 'success', 'message': 'Card marked as expired'}
+        Error: {'status': 'error', 'message': str}
+>>>>>>> eed2b618ab3d19c7842953eaeaad06e41437f171
     """
     if request.method == 'POST':
         try:
@@ -922,4 +1072,121 @@ def mark_card_expired(request):
     }, status=405)
 
 def index(request):
+    """
+    Renders the main index page
+    
+    Args:
+        request: HTTP request object
+        
+    Returns:
+        Rendered index.html template
+    """
     return render(request, 'index.html')
+
+
+# @csrf_exempt
+# def handle_rfid(request):
+#     """
+#     Handles all RFID card operations
+#
+#     Args:
+#         request: HTTP POST request with JSON body containing:
+#             - card_id: str (RFID card ID)
+#             - action: str ('check', 'create', 'delete')
+#             - data: dict (optional, additional data for create)
+#
+#     Returns:
+#         JsonResponse: Operation result or error message
+#     """
+#     if request.method == 'POST':
+#         try:
+#             data = json.loads(request.body)
+#             card_id = data.get('card_id')
+#             action = data.get('action')
+#             additional_data = data.get('data', {})
+#
+#             if not card_id or not action:
+#                 return JsonResponse({
+#                     'status': 'error',
+#                     'message': 'Missing card_id or action'
+#                 }, status=400)
+#
+#             # Handle different actions
+#             if action == 'check':
+#                 try:
+#                     gym_card = GymCard.objects.get(rfid_id=card_id)
+#                     return JsonResponse({
+#                         'status': 'success',
+#                         'exists': True,
+#                         'card_info': {
+#                             'id': gym_card.id,
+#                             'title': gym_card.title,
+#                             'status': gym_card.status,
+#                             'is_expired': gym_card.is_expired
+#                         }
+#                     })
+#                 except GymCard.DoesNotExist:
+#                     return JsonResponse({
+#                         'status': 'success',
+#                         'exists': False
+#                     })
+#
+#             elif action == 'create':
+#                 if not additional_data.get('title'):
+#                     return JsonResponse({
+#                         'status': 'error',
+#                         'message': 'Missing title for new card'
+#                     }, status=400)
+#
+#                 gym_card = GymCard.objects.create(
+#                     rfid_id=card_id,
+#                     title=additional_data.get('title'),
+#                     description=additional_data.get('description', ''),
+#                     expiration_date=additional_data.get('expiration_date',
+#                                                         timezone.now() + timezone.timedelta(days=365)),
+#                     status='active',
+#                     priority=additional_data.get('priority', 0),
+#                     is_expired=False
+#                 )
+#
+#                 return JsonResponse({
+#                     'status': 'success',
+#                     'message': 'Card created successfully',
+#                     'card_id': gym_card.id
+#                 })
+#
+#             elif action == 'delete':
+#                 try:
+#                     gym_card = GymCard.objects.get(rfid_id=card_id)
+#                     gym_card.delete()
+#                     return JsonResponse({
+#                         'status': 'success',
+#                         'message': 'Card deleted successfully'
+#                     })
+#                 except GymCard.DoesNotExist:
+#                     return JsonResponse({
+#                         'status': 'error',
+#                         'message': 'Card not found'
+#                     }, status=404)
+#
+#             else:
+#                 return JsonResponse({
+#                     'status': 'error',
+#                     'message': 'Invalid action'
+#                 }, status=400)
+#
+#         except json.JSONDecodeError:
+#             return JsonResponse({
+#                 'status': 'error',
+#                 'message': 'Invalid JSON'
+#             }, status=400)
+#         except Exception as e:
+#             return JsonResponse({
+#                 'status': 'error',
+#                 'message': str(e)
+#             }, status=500)
+#
+#     return JsonResponse({
+#         'status': 'error',
+#         'message': 'Invalid request method'
+#     }, status=405)
