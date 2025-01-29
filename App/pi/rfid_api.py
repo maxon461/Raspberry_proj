@@ -26,7 +26,6 @@ reader = MFRC522()
 # Django API endpoints
 BASE_URL = "http://your-django-server:8000/api"
 ENDPOINTS = {
-    'get_all': f"{BASE_URL}/get_gym_cards/",
     'create': f"{BASE_URL}/create_gym_card/",
     'delete': f"{BASE_URL}/delete_gym_card/",
     'update': f"{BASE_URL}/update_gym_card/"
