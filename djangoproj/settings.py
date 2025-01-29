@@ -175,10 +175,17 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
         },
+        'file': {
+            'class': 'logging.FileHandler',
+            'filename': 'django.log',
+        },
     },
-    'root': {
-        'handlers': ['console'],
-        'level': 'DEBUG',
+    'loggers': {
+        'App': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
     },
 }
 
@@ -224,3 +231,10 @@ SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_ROOT = os.path.join(BASE_DIR, 'my-react-app', 'build')
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-gym-cards',
+    }
+}

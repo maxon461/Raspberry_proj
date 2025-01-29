@@ -150,6 +150,28 @@ export default function Check({ card }) {
         window.location.reload(); // Add reload to refresh the view
     }
 
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch('http://127.0.0.1:8000/api/delete_gym_card/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: id })
+            });
+
+            if (response.ok) {
+                console.log('Card deleted successfully');
+                // Optionally refresh the page or update UI
+                window.location.reload();
+            } else {
+                console.error('Failed to delete card');
+            }
+        } catch (error) {
+            console.error('Error deleting card:', error);
+        }
+    };
+
     return (
         <div className={containerClass} onMouseEnter={handleHover} onMouseLeave={() => setShowButtons(false)}>
             {showButtons ? (
@@ -172,13 +194,17 @@ export default function Check({ card }) {
                     </div>
                 </div>
             ) : null}
-            <Delete card={card}/>
+            <Delete 
+                onDelete={(id) => handleDelete(id)} 
+                cardId={card.id}
+            />
             <h3>{card.Title}</h3>
             <p>{card.Description}</p>
             <p>Status: {card.Status.charAt(0).toUpperCase() + card.Status.slice(1)}</p>
             <p>Added: {new Date(card.DateAdded).toLocaleDateString()}</p>
             <p>Expires: {new Date(card.ExpirationDate).toLocaleDateString()}</p>
             <p>Priority: {card.Priority}</p>
+            {card.rfid_card_id && <p>RFID: {card.rfid_card_id}</p>}
             {message && <div className="message">{message} on {currentDate}</div>}
             {expired && <div className="message">Card expired</div>}
         </div>

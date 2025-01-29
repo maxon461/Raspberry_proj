@@ -15,4 +15,5 @@ urlpatterns = [
     path('api/get_gym_card_by_priority/', views.get_gym_card_by_priority, name='get_gym_card_by_priority'),
     path('api/get_gym_card_by_date/', views.get_gym_card_by_date, name='get_gym_card_by_date'),
     path('api/mark_card_expired/', views.mark_card_expired, name='mark_card_expired'),
+    path('api/create_gym_card_with_page/', views.create_gym_card_with_page, name='create_gym_card_with_page'),
 ]

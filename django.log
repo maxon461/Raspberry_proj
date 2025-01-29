@@ -1,0 +1,951 @@
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 16
+Starting MQTT handler thread...
+Starting MQTT handler...
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+Connecting to MQTT broker...
+MQTT handler thread started
+MQTT on_connect callback triggered with result code: 0
+Successfully connected to MQTT broker
+Subscribed to rfid/cards topic with QoS 1
+MQTT client loop started
+Setting up 30-second timeout
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 16
+Updated gym card 16 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 17
+Starting MQTT handler thread...
+Starting MQTT handler...
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+Connecting to MQTT broker...
+MQTT handler thread started
+MQTT on_connect callback triggered with result code: 0
+Successfully connected to MQTT broker
+Subscribed to rfid/cards topic with QoS 1
+MQTT client loop started
+Setting up 30-second timeout
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 17
+Updated gym card 17 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+WebSocket connected: specific..inmemory!vljTyHEWrQIR
+WebSocket connected: specific..inmemory!fvOqCfoXuVTz
+WebSocket connected: specific..inmemory!DEfsiUllFxKw
+14
+WebSocket connected: specific..inmemory!uWLXiSYvjbkD
+WebSocket connected: specific..inmemory!JhyTKvAfhjCN
+WebSocket connected: specific..inmemory!SjiEXZwYpTbs
+WebSocket connected: specific..inmemory!gNkfNeNYZbgI
+15
+WebSocket connected: specific..inmemory!jNfFWHUYDPwY
+WebSocket connected: specific..inmemory!QTUjSptyJWbh
+WebSocket connected: specific..inmemory!zTljMdnkTWhp
+WebSocket connected: specific..inmemory!PdnPzjuqbhsN
+Broadcast message sent: {"type": "card_update", "card": {"id": 12, "Title": "qwer", "Description": "qweqrw", "Status": "deactivated", "DateAdded": "2025-01-29T12:50:03.457440+00:00", "ExpirationDate": "2025-01-29T13:49:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 12, "Title": "qwer", "Description": "qweqrw", "Status": "deactivated", "DateAdded": "2025-01-29T12:50:03.457440+00:00", "ExpirationDate": "2025-01-29T13:49:00+00:00", "Priority": 0, "IsExpired": true}}
+WebSocket disconnected: specific..inmemory!zTljMdnkTWhp
+WebSocket disconnected: specific..inmemory!PdnPzjuqbhsN
+WebSocket connected: specific..inmemory!VNUCevygfhuD
+WebSocket connected: specific..inmemory!WdXoJbqeKlSg
+12
+Broadcast message sent: {"type": "delete", "card": {"id": 12}}
+Broadcast message sent: {"type": "delete", "card": {"id": 12}}
+WebSocket disconnected: specific..inmemory!VNUCevygfhuD
+WebSocket disconnected: specific..inmemory!WdXoJbqeKlSg
+WebSocket connected: specific..inmemory!XbGawmduHjyO
+WebSocket connected: specific..inmemory!UWLISXyRglrG
+WebSocket connected: specific..inmemory!uholDylSqMUB
+WebSocket connected: specific..inmemory!SGWLVqGDLITH
+10
+Broadcast message sent: {"type": "delete", "card": {"id": 10}}
+Broadcast message sent: {"type": "delete", "card": {"id": 10}}
+Broadcast message sent: {"type": "delete", "card": {"id": 10}}
+Broadcast message sent: {"type": "delete", "card": {"id": 10}}
+WebSocket disconnected: specific..inmemory!uholDylSqMUB
+WebSocket disconnected: specific..inmemory!SGWLVqGDLITH
+WebSocket connected: specific..inmemory!BusXwlygWLaD
+WebSocket connected: specific..inmemory!StkomNLrBaVo
+WebSocket disconnected: specific..inmemory!XbGawmduHjyO
+WebSocket disconnected: specific..inmemory!UWLISXyRglrG
+WebSocket connected: specific..inmemory!FSDcgXxWwLNM
+WebSocket connected: specific..inmemory!jMklSyKyVIat
+WebSocket disconnected: specific..inmemory!BusXwlygWLaD
+WebSocket disconnected: specific..inmemory!StkomNLrBaVo
+WebSocket connected: specific..inmemory!gUzRAIJuOmCI
+WebSocket connected: specific..inmemory!melTLLMrwxhv
+WebSocket disconnected: specific..inmemory!melTLLMrwxhv
+WebSocket disconnected: specific..inmemory!gUzRAIJuOmCI
+WebSocket connected: specific..inmemory!OhpnRRtRPsvm
+WebSocket connected: specific..inmemory!wIWtjVQQfjPX
+Broadcast message sent: {"type": "card_update", "card": {"id": 16, "Title": "qeere", "Description": "werwrewe", "Status": "active", "DateAdded": "2025-01-29T13:01:15.991950+00:00", "ExpirationDate": "2025-01-29T14:01:00+00:00", "Priority": 0, "IsExpired": false}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 16, "Title": "qeere", "Description": "werwrewe", "Status": "active", "DateAdded": "2025-01-29T13:01:15.991950+00:00", "ExpirationDate": "2025-01-29T14:01:00+00:00", "Priority": 0, "IsExpired": false}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 16, "Title": "qeere", "Description": "werwrewe", "Status": "active", "DateAdded": "2025-01-29T13:01:15.991950+00:00", "ExpirationDate": "2025-01-29T14:01:00+00:00", "Priority": 0, "IsExpired": false}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 16, "Title": "qeere", "Description": "werwrewe", "Status": "active", "DateAdded": "2025-01-29T13:01:15.991950+00:00", "ExpirationDate": "2025-01-29T14:01:00+00:00", "Priority": 0, "IsExpired": false}}
+WebSocket disconnected: specific..inmemory!FSDcgXxWwLNM
+WebSocket disconnected: specific..inmemory!jMklSyKyVIat
+WebSocket connected: specific..inmemory!AwhpWnLzwywe
+WebSocket connected: specific..inmemory!jXAomVIIwOwS
+WebSocket disconnected: specific..inmemory!OhpnRRtRPsvm
+WebSocket disconnected: specific..inmemory!wIWtjVQQfjPX
+WebSocket connected: specific..inmemory!keaaNvnTFvEj
+WebSocket connected: specific..inmemory!KspiDeHPJwAB
+WebSocket disconnected: specific..inmemory!keaaNvnTFvEj
+WebSocket disconnected: specific..inmemory!KspiDeHPJwAB
+WebSocket connected: specific..inmemory!YTDZurkxdjmY
+WebSocket connected: specific..inmemory!rbyrmojebJRV
+WebSocket disconnected: specific..inmemory!YTDZurkxdjmY
+WebSocket disconnected: specific..inmemory!rbyrmojebJRV
+WebSocket connected: specific..inmemory!EctKyNYuVexZ
+WebSocket connected: specific..inmemory!zFVTGScfhPkA
+WebSocket disconnected: specific..inmemory!zFVTGScfhPkA
+WebSocket disconnected: specific..inmemory!EctKyNYuVexZ
+WebSocket connected: specific..inmemory!vSnLnsCyGBRc
+WebSocket connected: specific..inmemory!rLmfoNQQWhnZ
+WebSocket disconnected: specific..inmemory!vSnLnsCyGBRc
+WebSocket disconnected: specific..inmemory!rLmfoNQQWhnZ
+WebSocket connected: specific..inmemory!wBbUYPxTTcto
+WebSocket connected: specific..inmemory!VmBPnXrJFcEm
+WebSocket disconnected: specific..inmemory!wBbUYPxTTcto
+WebSocket disconnected: specific..inmemory!VmBPnXrJFcEm
+WebSocket connected: specific..inmemory!vCIXXNawERpa
+WebSocket connected: specific..inmemory!KlJzTbExkkCe
+Broadcast message sent: {"type": "card_update", "card": {"id": 13, "Title": "qwere", "Description": "wqeqweq", "Status": "deactivated", "DateAdded": "2025-01-29T12:52:06.901717+00:00", "ExpirationDate": "2025-01-29T13:52:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 13, "Title": "qwere", "Description": "wqeqweq", "Status": "deactivated", "DateAdded": "2025-01-29T12:52:06.901717+00:00", "ExpirationDate": "2025-01-29T13:52:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 13, "Title": "qwere", "Description": "wqeqweq", "Status": "deactivated", "DateAdded": "2025-01-29T12:52:06.901717+00:00", "ExpirationDate": "2025-01-29T13:52:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 13, "Title": "qwere", "Description": "wqeqweq", "Status": "deactivated", "DateAdded": "2025-01-29T12:52:06.901717+00:00", "ExpirationDate": "2025-01-29T13:52:00+00:00", "Priority": 0, "IsExpired": true}}
+WebSocket disconnected: specific..inmemory!AwhpWnLzwywe
+WebSocket disconnected: specific..inmemory!jXAomVIIwOwS
+WebSocket connected: specific..inmemory!wGjBTqvbJjCR
+WebSocket connected: specific..inmemory!EuIHYQpLzYwH
+Broadcast message sent: {"type": "card_update", "card": {"id": 16, "Title": "qeere", "Description": "werwrewe", "Status": "deactivated", "DateAdded": "2025-01-29T13:01:15.991950+00:00", "ExpirationDate": "2025-01-29T14:01:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 16, "Title": "qeere", "Description": "werwrewe", "Status": "deactivated", "DateAdded": "2025-01-29T13:01:15.991950+00:00", "ExpirationDate": "2025-01-29T14:01:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 16, "Title": "qeere", "Description": "werwrewe", "Status": "deactivated", "DateAdded": "2025-01-29T13:01:15.991950+00:00", "ExpirationDate": "2025-01-29T14:01:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 16, "Title": "qeere", "Description": "werwrewe", "Status": "deactivated", "DateAdded": "2025-01-29T13:01:15.991950+00:00", "ExpirationDate": "2025-01-29T14:01:00+00:00", "Priority": 0, "IsExpired": true}}
+WebSocket disconnected: specific..inmemory!wGjBTqvbJjCR
+WebSocket disconnected: specific..inmemory!EuIHYQpLzYwH
+WebSocket connected: specific..inmemory!psPkDWZyvrgT
+WebSocket connected: specific..inmemory!RuJaSQHUdxAB
+WebSocket disconnected: specific..inmemory!vCIXXNawERpa
+WebSocket disconnected: specific..inmemory!KlJzTbExkkCe
+WebSocket connected: specific..inmemory!GoPoDmQVNMZV
+WebSocket connected: specific..inmemory!MErQNJeUzrie
+WebSocket disconnected: specific..inmemory!GoPoDmQVNMZV
+WebSocket disconnected: specific..inmemory!MErQNJeUzrie
+WebSocket connected: specific..inmemory!WGkggnqjreox
+WebSocket connected: specific..inmemory!VrWQNiRxnRUu
+Broadcast message sent: {"type": "card_update", "card": {"id": 17, "Title": "qwrwe", "Description": "qwerwerwr", "Status": "deactivated", "DateAdded": "2025-01-29T13:04:00.328070+00:00", "ExpirationDate": "2025-01-29T14:03:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 17, "Title": "qwrwe", "Description": "qwerwerwr", "Status": "deactivated", "DateAdded": "2025-01-29T13:04:00.328070+00:00", "ExpirationDate": "2025-01-29T14:03:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 17, "Title": "qwrwe", "Description": "qwerwerwr", "Status": "deactivated", "DateAdded": "2025-01-29T13:04:00.328070+00:00", "ExpirationDate": "2025-01-29T14:03:00+00:00", "Priority": 0, "IsExpired": true}}
+Broadcast message sent: {"type": "card_update", "card": {"id": 17, "Title": "qwrwe", "Description": "qwerwerwr", "Status": "deactivated", "DateAdded": "2025-01-29T13:04:00.328070+00:00", "ExpirationDate": "2025-01-29T14:03:00+00:00", "Priority": 0, "IsExpired": true}}
+WebSocket disconnected: specific..inmemory!psPkDWZyvrgT
+WebSocket disconnected: specific..inmemory!RuJaSQHUdxAB
+WebSocket connected: specific..inmemory!jupGFfhPzDGZ
+WebSocket connected: specific..inmemory!fMgizyVjACSU
+WebSocket connected: specific..inmemory!LMQsoeSCEjmt
+WebSocket connected: specific..inmemory!PvxeqrweFqRU
+WebSocket connected: specific..inmemory!AksHPLhoRlGt
+WebSocket connected: specific..inmemory!PhfGzDbRKMoV
+Attempting to delete card 7
+Card 7 deleted successfully
+Broadcasting update: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 7}}'}
+Delete broadcast sent for card 7
+Broadcast sent to client specific..inmemory!LMQsoeSCEjmt: {'type': 'delete', 'card': {'id': 7}}
+Broadcasting update: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 7}}'}
+Broadcast sent to client specific..inmemory!PvxeqrweFqRU: {'type': 'delete', 'card': {'id': 7}}
+Broadcasting update: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 7}}'}
+Broadcast sent to client specific..inmemory!AksHPLhoRlGt: {'type': 'delete', 'card': {'id': 7}}
+Broadcasting update: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 7}}'}
+Broadcast sent to client specific..inmemory!PhfGzDbRKMoV: {'type': 'delete', 'card': {'id': 7}}
+WebSocket disconnected: specific..inmemory!LMQsoeSCEjmt
+WebSocket disconnected: specific..inmemory!PvxeqrweFqRU
+WebSocket connected: specific..inmemory!FkUDPKwmKHyx
+WebSocket connected: specific..inmemory!cTFXZeOWqWZF
+Attempting to delete card 7
+Card 7 not found
+Attempting to delete card 7
+Card 7 not found
+Attempting to delete card 7
+Card 7 not found
+Attempting to delete card 13
+Card 13 deleted successfully
+Delete broadcast sent for card 13
+Broadcasting update: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 13}}'}
+Broadcast sent to client specific..inmemory!AksHPLhoRlGt: {'type': 'delete', 'card': {'id': 13}}
+Broadcasting update: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 13}}'}
+Broadcast sent to client specific..inmemory!PhfGzDbRKMoV: {'type': 'delete', 'card': {'id': 13}}
+Broadcasting update: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 13}}'}
+Broadcast sent to client specific..inmemory!FkUDPKwmKHyx: {'type': 'delete', 'card': {'id': 13}}
+Broadcasting update: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 13}}'}
+Broadcast sent to client specific..inmemory!cTFXZeOWqWZF: {'type': 'delete', 'card': {'id': 13}}
+WebSocket disconnected: specific..inmemory!AksHPLhoRlGt
+WebSocket disconnected: specific..inmemory!PhfGzDbRKMoV
+WebSocket connected: specific..inmemory!qlyLmUjbAFjL
+WebSocket connected: specific..inmemory!GpjPjbIWWQFO
+WebSocket disconnected: specific..inmemory!FkUDPKwmKHyx
+WebSocket disconnected: specific..inmemory!cTFXZeOWqWZF
+WebSocket connected: specific..inmemory!cJIIfiTTtENT
+WebSocket connected: specific..inmemory!PNTbvcMVIrgO
+WebSocket connected: specific..inmemory!zOQomEMwVUXw
+WebSocket connected: specific..inmemory!xOLCCaZGDgWl
+WebSocket connected: specific..inmemory!YZWgFajxQqRM
+WebSocket connected: specific..inmemory!OhbFJtGWMPCq
+Attempting to delete card 17
+Card 17 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 17}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 17}}'}
+Delete notification sent for card 17
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 17}}'}
+Delete notification sent for card 17
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 17}}'}
+Delete notification sent for card 17
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 17}}'}
+Delete notification sent for card 17
+WebSocket disconnected: specific..inmemory!YZWgFajxQqRM
+WebSocket disconnected: specific..inmemory!OhbFJtGWMPCq
+WebSocket connected: specific..inmemory!mVRBTvaaYHly
+WebSocket connected: specific..inmemory!iwWChKvQEgTv
+WebSocket disconnected: specific..inmemory!zOQomEMwVUXw
+WebSocket disconnected: specific..inmemory!xOLCCaZGDgWl
+WebSocket connected: specific..inmemory!QleaqCLoJmVa
+WebSocket connected: specific..inmemory!kTDHFgXSCJsl
+Attempting to delete card 16
+Card 16 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 16}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 16}}'}
+Delete notification sent for card 16
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 16}}'}
+Delete notification sent for card 16
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 16}}'}
+Delete notification sent for card 16
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 16}}'}
+Delete notification sent for card 16
+WebSocket disconnected: specific..inmemory!QleaqCLoJmVa
+WebSocket disconnected: specific..inmemory!kTDHFgXSCJsl
+WebSocket connected: specific..inmemory!fmUAwKBQNKMq
+WebSocket connected: specific..inmemory!sNglCxWEhdSy
+Attempting to delete card 16
+Card 16 not found
+Attempting to delete card 16
+Card 16 not found
+Attempting to delete card 16
+Card 16 not found
+WebSocket disconnected: specific..inmemory!mVRBTvaaYHly
+WebSocket disconnected: specific..inmemory!iwWChKvQEgTv
+WebSocket connected: specific..inmemory!DFTjDpeXDrYs
+WebSocket connected: specific..inmemory!WUtZraujedaa
+WebSocket disconnected: specific..inmemory!WUtZraujedaa
+WebSocket disconnected: specific..inmemory!DFTjDpeXDrYs
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 18
+Starting MQTT handler thread...
+Starting MQTT handler...
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+Connecting to MQTT broker...
+MQTT on_connect callback triggered with result code: 0
+Successfully connected to MQTT broker
+Subscribed to rfid/cards topic with QoS 1
+MQTT handler thread started
+MQTT client loop started
+Setting up 30-second timeout
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 18
+Updated gym card 18 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 18, "Title": "qwer", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!fmUAwKBQNKMq
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 18, "Title": "qwer", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!sNglCxWEhdSy
+WebSocket connected: specific..inmemory!CeURpKJewBTW
+WebSocket disconnected: specific..inmemory!CeURpKJewBTW
+WebSocket connected: specific..inmemory!DpXwulbEHYkD
+WebSocket connected: specific..inmemory!AsVzgryQMsCB
+WebSocket disconnected: specific..inmemory!DpXwulbEHYkD
+WebSocket disconnected: specific..inmemory!AsVzgryQMsCB
+WebSocket connected: specific..inmemory!PZWpoxxnHQJg
+WebSocket connected: specific..inmemory!WFFTBafuRrxj
+WebSocket connected: specific..inmemory!DimzLryPvVKA
+WebSocket connected: specific..inmemory!KSzJKqCteMQI
+WebSocket disconnected: specific..inmemory!KSzJKqCteMQI
+WebSocket connected: specific..inmemory!ORWVZPTfYnxR
+WebSocket disconnected: specific..inmemory!DimzLryPvVKA
+WebSocket disconnected: specific..inmemory!ORWVZPTfYnxR
+WebSocket connected: specific..inmemory!ElbebNckxPgq
+WebSocket connected: specific..inmemory!BTSgFJrhAdLY
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 19
+Starting MQTT handler thread...
+Starting MQTT handler...
+MQTT handler thread started
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+Connecting to MQTT broker...
+MQTT on_connect callback triggered with result code: 0
+MQTT client loop started
+Successfully connected to MQTT broker
+Setting up 30-second timeout
+Subscribed to rfid/cards topic with QoS 1
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 19
+Updated gym card 19 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!PZWpoxxnHQJg
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!WFFTBafuRrxj
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!ElbebNckxPgq
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!BTSgFJrhAdLY
+WebSocket disconnected: specific..inmemory!ElbebNckxPgq
+WebSocket disconnected: specific..inmemory!BTSgFJrhAdLY
+WebSocket connected: specific..inmemory!MUFAVFhMlTbR
+WebSocket connected: specific..inmemory!JrSpvMCatTZp
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "Description": "qwer", "Status": "active", "DateAdded": "2025-01-29T13:21:07.414229+00:00", "ExpirationDate": "2025-01-31T10:10:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!PZWpoxxnHQJg
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "Description": "qwer", "Status": "active", "DateAdded": "2025-01-29T13:21:07.414229+00:00", "ExpirationDate": "2025-01-31T10:10:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!WFFTBafuRrxj
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "Description": "qwer", "Status": "active", "DateAdded": "2025-01-29T13:21:07.414229+00:00", "ExpirationDate": "2025-01-31T10:10:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!MUFAVFhMlTbR
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "Description": "qwer", "Status": "active", "DateAdded": "2025-01-29T13:21:07.414229+00:00", "ExpirationDate": "2025-01-31T10:10:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!JrSpvMCatTZp
+WebSocket disconnected: specific..inmemory!PZWpoxxnHQJg
+WebSocket disconnected: specific..inmemory!WFFTBafuRrxj
+WebSocket connected: specific..inmemory!bWpcHStpFtDW
+WebSocket connected: specific..inmemory!bnZaaRrYNHwi
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "Description": "qwer", "Status": "deactivated", "DateAdded": "2025-01-29T13:21:07.414229+00:00", "ExpirationDate": "2025-01-31T10:10:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!MUFAVFhMlTbR
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "Description": "qwer", "Status": "deactivated", "DateAdded": "2025-01-29T13:21:07.414229+00:00", "ExpirationDate": "2025-01-31T10:10:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!JrSpvMCatTZp
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "Description": "qwer", "Status": "deactivated", "DateAdded": "2025-01-29T13:21:07.414229+00:00", "ExpirationDate": "2025-01-31T10:10:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!bWpcHStpFtDW
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 19, "Title": "wert", "Description": "qwer", "Status": "deactivated", "DateAdded": "2025-01-29T13:21:07.414229+00:00", "ExpirationDate": "2025-01-31T10:10:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!bnZaaRrYNHwi
+WebSocket disconnected: specific..inmemory!bWpcHStpFtDW
+WebSocket disconnected: specific..inmemory!bnZaaRrYNHwi
+WebSocket connected: specific..inmemory!JYiOdabzOYMl
+WebSocket connected: specific..inmemory!kEasgGToVqrU
+Attempting to delete card 19
+Card 19 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 19}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 19}}'}
+Delete notification sent for card 19
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 19}}'}
+Delete notification sent for card 19
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 19}}'}
+Delete notification sent for card 19
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 19}}'}
+Delete notification sent for card 19
+WebSocket disconnected: specific..inmemory!JYiOdabzOYMl
+WebSocket disconnected: specific..inmemory!kEasgGToVqrU
+WebSocket connected: specific..inmemory!YdJLPGFBgGtq
+WebSocket connected: specific..inmemory!mpqSCmiRWEwT
+WebSocket disconnected: specific..inmemory!JrSpvMCatTZp
+WebSocket disconnected: specific..inmemory!MUFAVFhMlTbR
+WebSocket connected: specific..inmemory!JMHvAFtijYal
+WebSocket connected: specific..inmemory!WtEQTZWLeLbW
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 18, "Title": "qwer", "Description": "qwer", "Status": "deactivated", "DateAdded": "2025-01-29T13:14:48.869042+00:00", "ExpirationDate": "2025-02-03T10:10:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!YdJLPGFBgGtq
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 18, "Title": "qwer", "Description": "qwer", "Status": "deactivated", "DateAdded": "2025-01-29T13:14:48.869042+00:00", "ExpirationDate": "2025-02-03T10:10:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!mpqSCmiRWEwT
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 18, "Title": "qwer", "Description": "qwer", "Status": "deactivated", "DateAdded": "2025-01-29T13:14:48.869042+00:00", "ExpirationDate": "2025-02-03T10:10:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!JMHvAFtijYal
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 18, "Title": "qwer", "Description": "qwer", "Status": "deactivated", "DateAdded": "2025-01-29T13:14:48.869042+00:00", "ExpirationDate": "2025-02-03T10:10:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!WtEQTZWLeLbW
+WebSocket disconnected: specific..inmemory!YdJLPGFBgGtq
+WebSocket disconnected: specific..inmemory!mpqSCmiRWEwT
+WebSocket connected: specific..inmemory!pVhIpkGZRXGs
+WebSocket connected: specific..inmemory!knUxoBEkdtmr
+Attempting to delete card 18
+Card 18 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 18}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 18}}'}
+Delete notification sent for card 18
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 18}}'}
+Delete notification sent for card 18
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 18}}'}
+Delete notification sent for card 18
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 18}}'}
+Delete notification sent for card 18
+WebSocket disconnected: specific..inmemory!WtEQTZWLeLbW
+WebSocket disconnected: specific..inmemory!JMHvAFtijYal
+WebSocket connected: specific..inmemory!cFhXFEyYaQRF
+WebSocket connected: specific..inmemory!lfsaUJZmbFmF
+WebSocket disconnected: specific..inmemory!cFhXFEyYaQRF
+WebSocket disconnected: specific..inmemory!lfsaUJZmbFmF
+WebSocket connected: specific..inmemory!qjiAmhhXlMVU
+WebSocket connected: specific..inmemory!mekzdsHBkeom
+MQTT timeout reached
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 19}}'}
+RFID timeout notification sent for card 19
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 19}}'}
+RFID timeout notification sent for card 19
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 19}}'}
+RFID timeout notification sent for card 19
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 19}}'}
+RFID timeout notification sent for card 19
+WebSocket disconnected: specific..inmemory!pVhIpkGZRXGs
+WebSocket disconnected: specific..inmemory!knUxoBEkdtmr
+WebSocket connected: specific..inmemory!EdINJkiKnCml
+WebSocket connected: specific..inmemory!MBZJLnfWySXb
+WebSocket disconnected: specific..inmemory!MBZJLnfWySXb
+WebSocket connected: specific..inmemory!WXcYbDasXYJr
+WebSocket disconnected: specific..inmemory!EdINJkiKnCml
+WebSocket disconnected: specific..inmemory!WXcYbDasXYJr
+WebSocket connected: specific..inmemory!SqtTrDSXVpjP
+WebSocket connected: specific..inmemory!WOhMYPEvcaqD
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 20
+Starting MQTT handler thread...
+Starting MQTT handler...
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+MQTT handler thread started
+Connecting to MQTT broker...
+MQTT client loop started
+Setting up 30-second timeout
+MQTT on_connect callback triggered with result code: 0
+Successfully connected to MQTT broker
+Subscribed to rfid/cards topic with QoS 1
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 20
+Updated gym card 20 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 20, "Title": "eqweq", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!qjiAmhhXlMVU
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 20, "Title": "eqweq", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!mekzdsHBkeom
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 20, "Title": "eqweq", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!SqtTrDSXVpjP
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 20, "Title": "eqweq", "rfid_card_id": "1234567890", "Status": "active"}}'}
+Update sent to client specific..inmemory!WOhMYPEvcaqD
+WebSocket disconnected: specific..inmemory!SqtTrDSXVpjP
+WebSocket disconnected: specific..inmemory!WOhMYPEvcaqD
+WebSocket connected: specific..inmemory!DpOnFsDXDKOO
+WebSocket connected: specific..inmemory!gfpZNdkLuurn
+WebSocket disconnected: specific..inmemory!DpOnFsDXDKOO
+WebSocket disconnected: specific..inmemory!gfpZNdkLuurn
+WebSocket connected: specific..inmemory!CTlAHGAivbPr
+WebSocket connected: specific..inmemory!fkryuYxrHYlf
+MQTT timeout reached
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 20}}'}
+RFID timeout notification sent for card 20
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 20}}'}
+RFID timeout notification sent for card 20
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 20}}'}
+RFID timeout notification sent for card 20
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 20}}'}
+RFID timeout notification sent for card 20
+WebSocket connected: specific..inmemory!QopucnYigfLe
+WebSocket connected: specific..inmemory!sPeLZBLtRMDF
+WebSocket connected: specific..inmemory!lCWkqFrErPaA
+WebSocket connected: specific..inmemory!EiIUASxNlxTL
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 20, "Title": "eqweq", "Description": "qweqwe", "Status": "deactivated", "DateAdded": "2025-01-29T13:23:25.030888+00:00", "ExpirationDate": "2025-01-29T14:23:00+00:00", "Priority": 9, "IsExpired": true}}'}
+Update sent to client specific..inmemory!QopucnYigfLe
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 20, "Title": "eqweq", "Description": "qweqwe", "Status": "deactivated", "DateAdded": "2025-01-29T13:23:25.030888+00:00", "ExpirationDate": "2025-01-29T14:23:00+00:00", "Priority": 9, "IsExpired": true}}'}
+Update sent to client specific..inmemory!sPeLZBLtRMDF
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 20, "Title": "eqweq", "Description": "qweqwe", "Status": "deactivated", "DateAdded": "2025-01-29T13:23:25.030888+00:00", "ExpirationDate": "2025-01-29T14:23:00+00:00", "Priority": 9, "IsExpired": true}}'}
+Update sent to client specific..inmemory!lCWkqFrErPaA
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 20, "Title": "eqweq", "Description": "qweqwe", "Status": "deactivated", "DateAdded": "2025-01-29T13:23:25.030888+00:00", "ExpirationDate": "2025-01-29T14:23:00+00:00", "Priority": 9, "IsExpired": true}}'}
+Update sent to client specific..inmemory!EiIUASxNlxTL
+WebSocket disconnected: specific..inmemory!QopucnYigfLe
+WebSocket disconnected: specific..inmemory!sPeLZBLtRMDF
+WebSocket connected: specific..inmemory!dPBlgkZXHTsW
+WebSocket connected: specific..inmemory!jcGeBsKxlJsW
+WebSocket disconnected: specific..inmemory!dPBlgkZXHTsW
+WebSocket disconnected: specific..inmemory!jcGeBsKxlJsW
+WebSocket connected: specific..inmemory!MWYZhtLEOgsi
+WebSocket connected: specific..inmemory!IMqQCpIRoknX
+WebSocket disconnected: specific..inmemory!EiIUASxNlxTL
+WebSocket disconnected: specific..inmemory!lCWkqFrErPaA
+WebSocket connected: specific..inmemory!oaspOgsoDtAS
+WebSocket connected: specific..inmemory!vYHwtSqmjUSB
+WebSocket connected: specific..inmemory!fXUSEHIjUHau
+WebSocket connected: specific..inmemory!VuKBqYZISuBR
+WebSocket disconnected: specific..inmemory!oaspOgsoDtAS
+WebSocket disconnected: specific..inmemory!vYHwtSqmjUSB
+WebSocket connected: specific..inmemory!hvSqnQDsjltw
+WebSocket connected: specific..inmemory!ftulUBYpXycA
+WebSocket disconnected: specific..inmemory!hvSqnQDsjltw
+WebSocket disconnected: specific..inmemory!ftulUBYpXycA
+WebSocket connected: specific..inmemory!SeeLIxSnjLCe
+WebSocket connected: specific..inmemory!RDDlQSQhEJrm
+WebSocket connected: specific..inmemory!WbxLisITARfJ
+WebSocket connected: specific..inmemory!YYZExuEVMntj
+WebSocket connected: specific..inmemory!SvAlELCwqKnQ
+WebSocket connected: specific..inmemory!IQwZioEGbPbR
+Attempting to delete card 20
+Card 20 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 20}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 20}}'}
+Delete notification sent for card ID: 20
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 20}}'}
+Delete notification sent for card ID: 20
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 20}}'}
+Delete notification sent for card ID: 20
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 20}}'}
+Delete notification sent for card ID: 20
+WebSocket disconnected: specific..inmemory!SvAlELCwqKnQ
+WebSocket disconnected: specific..inmemory!IQwZioEGbPbR
+WebSocket connected: specific..inmemory!GDvRSyeWrVzs
+WebSocket connected: specific..inmemory!dUpEXloEvsoj
+WebSocket disconnected: specific..inmemory!YYZExuEVMntj
+WebSocket connected: specific..inmemory!UenAwjVGSdre
+WebSocket disconnected: specific..inmemory!WbxLisITARfJ
+WebSocket disconnected: specific..inmemory!UenAwjVGSdre
+WebSocket connected: specific..inmemory!UzcMGUsXhZfe
+WebSocket connected: specific..inmemory!djhUpWvFRIDQ
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 21
+Starting MQTT handler thread...
+Starting MQTT handler...
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+Connecting to MQTT broker...
+MQTT handler thread started
+MQTT on_connect callback triggered with result code: 0
+Successfully connected to MQTT broker
+Subscribed to rfid/cards topic with QoS 1
+MQTT client loop started
+Setting up 30-second timeout
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 21
+Updated gym card 21 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!GDvRSyeWrVzs
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!dUpEXloEvsoj
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!UzcMGUsXhZfe
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!djhUpWvFRIDQ
+WebSocket disconnected: specific..inmemory!djhUpWvFRIDQ
+WebSocket connected: specific..inmemory!mnqSUdeqHabZ
+MQTT timeout reached
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 21}}'}
+RFID timeout notification sent for card 21
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 21}}'}
+RFID timeout notification sent for card 21
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 21}}'}
+RFID timeout notification sent for card 21
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 21}}'}
+RFID timeout notification sent for card 21
+WebSocket disconnected: specific..inmemory!UzcMGUsXhZfe
+WebSocket disconnected: specific..inmemory!mnqSUdeqHabZ
+WebSocket connected: specific..inmemory!gjgcCIjUFrBS
+WebSocket connected: specific..inmemory!wHvLwvovjkqq
+WebSocket disconnected: specific..inmemory!GDvRSyeWrVzs
+WebSocket disconnected: specific..inmemory!dUpEXloEvsoj
+WebSocket connected: specific..inmemory!goGOKeyTPcYG
+WebSocket connected: specific..inmemory!kXWbokGDCkLh
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "Description": "qwerereter", "Status": "active", "DateAdded": "2025-01-29T13:34:26.946708+00:00", "ExpirationDate": "2025-01-29T14:34:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!gjgcCIjUFrBS
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "Description": "qwerereter", "Status": "active", "DateAdded": "2025-01-29T13:34:26.946708+00:00", "ExpirationDate": "2025-01-29T14:34:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!wHvLwvovjkqq
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "Description": "qwerereter", "Status": "active", "DateAdded": "2025-01-29T13:34:26.946708+00:00", "ExpirationDate": "2025-01-29T14:34:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!goGOKeyTPcYG
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "Description": "qwerereter", "Status": "active", "DateAdded": "2025-01-29T13:34:26.946708+00:00", "ExpirationDate": "2025-01-29T14:34:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!kXWbokGDCkLh
+WebSocket disconnected: specific..inmemory!gjgcCIjUFrBS
+WebSocket disconnected: specific..inmemory!wHvLwvovjkqq
+WebSocket connected: specific..inmemory!BwXNjUPtAKEy
+WebSocket connected: specific..inmemory!foQMAnZjuHIW
+WebSocket disconnected: specific..inmemory!kXWbokGDCkLh
+WebSocket disconnected: specific..inmemory!goGOKeyTPcYG
+WebSocket connected: specific..inmemory!myBiZuwTlpCI
+WebSocket disconnected: specific..inmemory!BwXNjUPtAKEy
+WebSocket disconnected: specific..inmemory!foQMAnZjuHIW
+WebSocket connected: specific..inmemory!nOvRmubpVFIQ
+WebSocket connected: specific..inmemory!TOwmKGtymWir
+WebSocket connected: specific..inmemory!rnLzicIfYjbQ
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "Description": "qwerereter", "Status": "deactivated", "DateAdded": "2025-01-29T13:34:26.946708+00:00", "ExpirationDate": "2025-01-29T14:34:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!myBiZuwTlpCI
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "Description": "qwerereter", "Status": "deactivated", "DateAdded": "2025-01-29T13:34:26.946708+00:00", "ExpirationDate": "2025-01-29T14:34:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!nOvRmubpVFIQ
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "Description": "qwerereter", "Status": "deactivated", "DateAdded": "2025-01-29T13:34:26.946708+00:00", "ExpirationDate": "2025-01-29T14:34:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!TOwmKGtymWir
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 21, "Title": "qweqwe", "Description": "qwerereter", "Status": "deactivated", "DateAdded": "2025-01-29T13:34:26.946708+00:00", "ExpirationDate": "2025-01-29T14:34:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!rnLzicIfYjbQ
+WebSocket disconnected: specific..inmemory!TOwmKGtymWir
+WebSocket disconnected: specific..inmemory!rnLzicIfYjbQ
+WebSocket connected: specific..inmemory!rvyUhEaOBWPF
+WebSocket connected: specific..inmemory!BxFcRzNldJqW
+Attempting to delete card 21
+Card 21 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 21}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 21}}'}
+Delete notification sent for card ID: 21
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 21}}'}
+Delete notification sent for card ID: 21
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 21}}'}
+Delete notification sent for card ID: 21
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 21}}'}
+Delete notification sent for card ID: 21
+WebSocket disconnected: specific..inmemory!nOvRmubpVFIQ
+WebSocket disconnected: specific..inmemory!myBiZuwTlpCI
+WebSocket connected: specific..inmemory!vffkdIrZrNJu
+WebSocket connected: specific..inmemory!JedXRHsUVxXQ
+WebSocket disconnected: specific..inmemory!BxFcRzNldJqW
+WebSocket connected: specific..inmemory!ZSloppCoRUia
+WebSocket disconnected: specific..inmemory!rvyUhEaOBWPF
+WebSocket disconnected: specific..inmemory!ZSloppCoRUia
+WebSocket connected: specific..inmemory!XCTmSlhlZevn
+WebSocket connected: specific..inmemory!MyZCAMpXqGLj
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 22
+Starting MQTT handler thread...
+Starting MQTT handler...
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+MQTT handler thread started
+Connecting to MQTT broker...
+MQTT on_connect callback triggered with result code: 0
+MQTT client loop started
+Successfully connected to MQTT broker
+Setting up 30-second timeout
+Subscribed to rfid/cards topic with QoS 1
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 22
+Updated gym card 22 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!vffkdIrZrNJu
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!JedXRHsUVxXQ
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!XCTmSlhlZevn
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!MyZCAMpXqGLj
+MQTT timeout reached
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 22}}'}
+RFID timeout notification sent for card 22
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 22}}'}
+RFID timeout notification sent for card 22
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 22}}'}
+RFID timeout notification sent for card 22
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 22}}'}
+RFID timeout notification sent for card 22
+WebSocket disconnected: specific..inmemory!XCTmSlhlZevn
+WebSocket disconnected: specific..inmemory!MyZCAMpXqGLj
+WebSocket connected: specific..inmemory!nkFNRZcLjyYB
+WebSocket disconnected: specific..inmemory!nkFNRZcLjyYB
+WebSocket connected: specific..inmemory!KRPYXYOinXHC
+WebSocket connected: specific..inmemory!CfKLGFHDomwR
+WebSocket connected: specific..inmemory!CVMEWmruOzKW
+WebSocket connected: specific..inmemory!tnxyhRenhBZQ
+WebSocket connected: specific..inmemory!qUwteoiNrlaX
+WebSocket connected: specific..inmemory!TzHhkYfoGfJp
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "Description": "qwetrt", "Status": "active", "DateAdded": "2025-01-29T13:36:26.206042+00:00", "ExpirationDate": "2025-01-29T14:36:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!CVMEWmruOzKW
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "Description": "qwetrt", "Status": "active", "DateAdded": "2025-01-29T13:36:26.206042+00:00", "ExpirationDate": "2025-01-29T14:36:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!tnxyhRenhBZQ
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "Description": "qwetrt", "Status": "active", "DateAdded": "2025-01-29T13:36:26.206042+00:00", "ExpirationDate": "2025-01-29T14:36:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!qUwteoiNrlaX
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "Description": "qwetrt", "Status": "active", "DateAdded": "2025-01-29T13:36:26.206042+00:00", "ExpirationDate": "2025-01-29T14:36:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!TzHhkYfoGfJp
+WebSocket disconnected: specific..inmemory!qUwteoiNrlaX
+WebSocket disconnected: specific..inmemory!TzHhkYfoGfJp
+WebSocket connected: specific..inmemory!RWGIcmgxHOio
+WebSocket connected: specific..inmemory!vzmNPUkWfrmH
+WebSocket disconnected: specific..inmemory!CVMEWmruOzKW
+WebSocket disconnected: specific..inmemory!tnxyhRenhBZQ
+WebSocket connected: specific..inmemory!iQSggiqQucUH
+WebSocket connected: specific..inmemory!NpcdQbXgfVCT
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "Description": "qwetrt", "Status": "deactivated", "DateAdded": "2025-01-29T13:36:26.206042+00:00", "ExpirationDate": "2025-01-29T14:36:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!RWGIcmgxHOio
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "Description": "qwetrt", "Status": "deactivated", "DateAdded": "2025-01-29T13:36:26.206042+00:00", "ExpirationDate": "2025-01-29T14:36:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!vzmNPUkWfrmH
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "Description": "qwetrt", "Status": "deactivated", "DateAdded": "2025-01-29T13:36:26.206042+00:00", "ExpirationDate": "2025-01-29T14:36:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!iQSggiqQucUH
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 22, "Title": "qweqw", "Description": "qwetrt", "Status": "deactivated", "DateAdded": "2025-01-29T13:36:26.206042+00:00", "ExpirationDate": "2025-01-29T14:36:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!NpcdQbXgfVCT
+WebSocket disconnected: specific..inmemory!RWGIcmgxHOio
+WebSocket disconnected: specific..inmemory!vzmNPUkWfrmH
+WebSocket connected: specific..inmemory!IxdDychQScXJ
+WebSocket connected: specific..inmemory!SwgLcipKhRll
+WebSocket disconnected: specific..inmemory!SwgLcipKhRll
+WebSocket connected: specific..inmemory!YoNefkJdcUGD
+WebSocket disconnected: specific..inmemory!IxdDychQScXJ
+WebSocket disconnected: specific..inmemory!YoNefkJdcUGD
+WebSocket connected: specific..inmemory!MqDebKsiaLrU
+WebSocket connected: specific..inmemory!OAlbUFEsMeiU
+WebSocket disconnected: specific..inmemory!OAlbUFEsMeiU
+WebSocket connected: specific..inmemory!HLpOBlDRnfpt
+Attempting to delete card 22
+Card 22 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 22}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 22}}'}
+Delete notification sent for card ID: 22
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 22}}'}
+Delete notification sent for card ID: 22
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 22}}'}
+Delete notification sent for card ID: 22
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 22}}'}
+Delete notification sent for card ID: 22
+WebSocket disconnected: specific..inmemory!MqDebKsiaLrU
+WebSocket disconnected: specific..inmemory!HLpOBlDRnfpt
+WebSocket connected: specific..inmemory!NKVxusWzSLaf
+WebSocket connected: specific..inmemory!UBYaZcjVQRCd
+WebSocket disconnected: specific..inmemory!UBYaZcjVQRCd
+WebSocket connected: specific..inmemory!WzmxVpFhJzzt
+WebSocket disconnected: specific..inmemory!NKVxusWzSLaf
+WebSocket disconnected: specific..inmemory!WzmxVpFhJzzt
+WebSocket connected: specific..inmemory!NXBAlDSeeugZ
+WebSocket connected: specific..inmemory!gBHEaJSnzRCQ
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 23
+Starting MQTT handler thread...
+Starting MQTT handler...
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+Connecting to MQTT broker...
+MQTT handler thread started
+MQTT on_connect callback triggered with result code: 0
+Successfully connected to MQTT broker
+Subscribed to rfid/cards topic with QoS 1
+MQTT client loop started
+Setting up 30-second timeout
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 23
+Updated gym card 23 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 23, "Title": "eqwrwerw", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!iQSggiqQucUH
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 23, "Title": "eqwrwerw", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!NpcdQbXgfVCT
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 23, "Title": "eqwrwerw", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!NXBAlDSeeugZ
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 23, "Title": "eqwrwerw", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!gBHEaJSnzRCQ
+WebSocket disconnected: specific..inmemory!gBHEaJSnzRCQ
+WebSocket connected: specific..inmemory!PvrouoZETNgN
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 23, "Title": "eqwrwerw", "Description": "rwetrtutyut", "Status": "deactivated", "DateAdded": "2025-01-29T13:38:16.054543+00:00", "ExpirationDate": "2025-01-29T14:38:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!iQSggiqQucUH
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 23, "Title": "eqwrwerw", "Description": "rwetrtutyut", "Status": "deactivated", "DateAdded": "2025-01-29T13:38:16.054543+00:00", "ExpirationDate": "2025-01-29T14:38:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!NpcdQbXgfVCT
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 23, "Title": "eqwrwerw", "Description": "rwetrtutyut", "Status": "deactivated", "DateAdded": "2025-01-29T13:38:16.054543+00:00", "ExpirationDate": "2025-01-29T14:38:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!NXBAlDSeeugZ
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 23, "Title": "eqwrwerw", "Description": "rwetrtutyut", "Status": "deactivated", "DateAdded": "2025-01-29T13:38:16.054543+00:00", "ExpirationDate": "2025-01-29T14:38:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!PvrouoZETNgN
+WebSocket disconnected: specific..inmemory!NXBAlDSeeugZ
+WebSocket disconnected: specific..inmemory!PvrouoZETNgN
+WebSocket connected: specific..inmemory!JQWdbZyoxokm
+WebSocket connected: specific..inmemory!ojrHiQYyQQmD
+Attempting to delete card 23
+Card 23 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 23}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 23}}'}
+Delete notification sent for card ID: 23
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 23}}'}
+Delete notification sent for card ID: 23
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 23}}'}
+Delete notification sent for card ID: 23
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 23}}'}
+Delete notification sent for card ID: 23
+MQTT timeout reached
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 23}}'}
+RFID timeout notification sent for card 23
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 23}}'}
+RFID timeout notification sent for card 23
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 23}}'}
+RFID timeout notification sent for card 23
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 23}}'}
+RFID timeout notification sent for card 23
+WebSocket connected: specific..inmemory!ulJIehwuCZGi
+WebSocket connected: specific..inmemory!zYLNkojKxqNL
+WebSocket connected: specific..inmemory!VwGyqPUkLWFC
+WebSocket connected: specific..inmemory!OaxhPbXFPecU
+WebSocket disconnected: specific..inmemory!zYLNkojKxqNL
+WebSocket connected: specific..inmemory!GpbbMDGBSHHw
+WebSocket disconnected: specific..inmemory!ulJIehwuCZGi
+WebSocket disconnected: specific..inmemory!GpbbMDGBSHHw
+WebSocket connected: specific..inmemory!GZMJBGoirrci
+WebSocket connected: specific..inmemory!gOHwxlNPrqjj
+Starting gym card creation with RFID...
+Verifying MQTT connection...
+MQTT connection attempt 1/3
+MQTT connection successful
+Parsing request data...
+Validating required fields...
+Creating gym card in database...
+Gym card created with ID: 24
+Starting MQTT handler thread...
+Starting MQTT handler...
+Creating MQTT client (attempt 1/3)
+Setting up MQTT callbacks...
+MQTT handler thread started
+Connecting to MQTT broker...
+MQTT on_connect callback triggered with result code: 0
+Successfully connected to MQTT broker
+Subscribed to rfid/cards topic with QoS 1
+MQTT client loop started
+Setting up 30-second timeout
+Received MQTT message on topic rfid/cards
+Raw message payload: b'{"card_id": "1234567890"}'
+Extracted card_id: 1234567890
+Processing RFID card: 1234567890
+Found gym card 24
+Updated gym card 24 with RFID 1234567890
+Broadcasting card update...
+Broadcast update sent successfully
+Disconnecting MQTT client
+MQTT client disconnected successfully
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!VwGyqPUkLWFC
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!OaxhPbXFPecU
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!GZMJBGoirrci
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "rfid_card_id": "1234567890", "Status": "true"}}'}
+Update sent to client specific..inmemory!gOHwxlNPrqjj
+WebSocket disconnected: specific..inmemory!gOHwxlNPrqjj
+WebSocket connected: specific..inmemory!VObCnWqUFJzL
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "Description": "qreretre", "Status": "active", "DateAdded": "2025-01-29T13:40:41.503013+00:00", "ExpirationDate": "2025-01-29T14:40:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!VwGyqPUkLWFC
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "Description": "qreretre", "Status": "active", "DateAdded": "2025-01-29T13:40:41.503013+00:00", "ExpirationDate": "2025-01-29T14:40:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!OaxhPbXFPecU
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "Description": "qreretre", "Status": "active", "DateAdded": "2025-01-29T13:40:41.503013+00:00", "ExpirationDate": "2025-01-29T14:40:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!GZMJBGoirrci
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "Description": "qreretre", "Status": "active", "DateAdded": "2025-01-29T13:40:41.503013+00:00", "ExpirationDate": "2025-01-29T14:40:00+00:00", "Priority": 0, "IsExpired": false}}'}
+Update sent to client specific..inmemory!VObCnWqUFJzL
+WebSocket disconnected: specific..inmemory!GZMJBGoirrci
+WebSocket disconnected: specific..inmemory!VObCnWqUFJzL
+WebSocket connected: specific..inmemory!pYvYWnhLoTgz
+WebSocket connected: specific..inmemory!MiUqHDaxqqRl
+WebSocket disconnected: specific..inmemory!VwGyqPUkLWFC
+WebSocket disconnected: specific..inmemory!OaxhPbXFPecU
+WebSocket connected: specific..inmemory!CAbqTYiLuOiq
+WebSocket connected: specific..inmemory!RUSAvtnMIYJk
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "Description": "qreretre", "Status": "deactivated", "DateAdded": "2025-01-29T13:40:41.503013+00:00", "ExpirationDate": "2025-01-29T14:40:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!pYvYWnhLoTgz
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "Description": "qreretre", "Status": "deactivated", "DateAdded": "2025-01-29T13:40:41.503013+00:00", "ExpirationDate": "2025-01-29T14:40:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!MiUqHDaxqqRl
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "Description": "qreretre", "Status": "deactivated", "DateAdded": "2025-01-29T13:40:41.503013+00:00", "ExpirationDate": "2025-01-29T14:40:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!CAbqTYiLuOiq
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "card_update", "card": {"id": 24, "Title": "qrwer", "Description": "qreretre", "Status": "deactivated", "DateAdded": "2025-01-29T13:40:41.503013+00:00", "ExpirationDate": "2025-01-29T14:40:00+00:00", "Priority": 0, "IsExpired": true}}'}
+Update sent to client specific..inmemory!RUSAvtnMIYJk
+WebSocket disconnected: specific..inmemory!pYvYWnhLoTgz
+WebSocket disconnected: specific..inmemory!MiUqHDaxqqRl
+WebSocket connected: specific..inmemory!HQlYxzBLDugJ
+WebSocket connected: specific..inmemory!kkuEZzzZkpaw
+Attempting to delete card 24
+Card 24 deleted successfully
+Delete broadcast sent: {'type': 'delete', 'card': {'id': 24}}
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 24}}'}
+Delete notification sent for card ID: 24
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 24}}'}
+Delete notification sent for card ID: 24
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 24}}'}
+Delete notification sent for card ID: 24
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "delete", "card": {"id": 24}}'}
+Delete notification sent for card ID: 24
+MQTT timeout reached
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 24}}'}
+RFID timeout notification sent for card 24
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 24}}'}
+RFID timeout notification sent for card 24
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 24}}'}
+RFID timeout notification sent for card 24
+Received broadcast event: {'type': 'broadcast_update', 'data': '{"type": "rfid_timeout", "card": {"id": 24}}'}
+RFID timeout notification sent for card 24

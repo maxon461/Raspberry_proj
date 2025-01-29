@@ -31,7 +31,6 @@ const MainPage = () => {
   useEffect(() => {
     fetchGymCards();
 
-    // WebSocket setup
     wsRef.current = new WebSocket('ws://127.0.0.1:8000/ws/gym_cards/');
     
     wsRef.current.onopen = () => {
@@ -41,23 +40,26 @@ const MainPage = () => {
     wsRef.current.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        if (data.type === 'card_update') {
+        console.log('WebSocket message received:', data);
+
+        if (data.type === 'delete') {
+          // Remove card using the ID from data.data
+          setGymCards(prevCards => 
+            prevCards.filter(card => card.id !== data.data.id)
+          );
+        } else if (data.type === 'card_update') {
           setGymCards(prevCards => {
-            const updatedCards = [...prevCards];
-            const index = updatedCards.findIndex(card => card.id === data.card.id);
+            const newCards = [...prevCards];
+            const index = newCards.findIndex(card => card.id === data.data.id);
             
             if (index !== -1) {
-              updatedCards[index] = data.card;
+              newCards[index] = { ...newCards[index], ...data.data };
             } else {
-              updatedCards.push(data.card);
+              newCards.push(data.data);
             }
             
-            return updatedCards;
+            return newCards;
           });
-        } else if (data.type === 'delete') {
-          setGymCards(prevCards => 
-            prevCards.filter(card => card.id !== data.id)
-          );
         }
       } catch (error) {
         console.error('Error processing WebSocket message:', error);
@@ -89,6 +91,27 @@ const MainPage = () => {
     setIsToggled(state);
     localStorage.setItem('toggleState', state);
   };
+
+  const handleDelete = async (cardId) => {
+    try {
+        const response = await fetch('/api/delete_gym_card/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id: cardId })
+        });
+        
+        if (response.ok) {
+            // Local state update will happen through WebSocket
+            console.log('Card deleted successfully');
+        } else {
+            console.error('Failed to delete card');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
 
   if (isLoading) {
     return <div>Loading...</div>;

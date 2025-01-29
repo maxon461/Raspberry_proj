@@ -11,6 +11,7 @@ class GymCard(models.Model):
     ]
 
     title = models.CharField(max_length=100)
+    rfid_card_id = models.CharField(max_length=100, null=True, blank=True)
     description = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
     expiration_date = models.DateTimeField()
@@ -19,4 +20,4 @@ class GymCard(models.Model):
     is_expired = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title
+        return f"{self.title} (RFID: {self.rfid_card_id or 'None'})"

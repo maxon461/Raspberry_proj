@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ShowTable.css";
 import Delete from "../Delete/Delete";
 import StatusApdater from "../StatusApdater/StatusApdater";
 
 export default function ShowTable({ data }) {
   const [cards, setCards] = useState(data);
+
+  // Update cards when data prop changes
+  useEffect(() => {
+    setCards(data);
+  }, [data]);
+
   const [sortOrder, setSortOrder] = useState({
     Title: true,
     Description: true,
@@ -39,6 +45,27 @@ export default function ShowTable({ data }) {
     }));
   }
 
+  const handleDelete = async (cardId) => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/delete_gym_card/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: cardId })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete card');
+      }
+
+      // Card removal will be handled by WebSocket message
+      console.log('Delete request sent successfully');
+    } catch (error) {
+      console.error('Error deleting card:', error);
+    }
+  };
+
   if (!cards || cards.length === 0) {
     return <p>No cards available.</p>;
   }
@@ -53,6 +80,7 @@ export default function ShowTable({ data }) {
           <th onClick={() => sortBy('DateAdded')} className="sortable-header">Date Added</th>
           <th onClick={() => sortBy('ExpirationDate')} className="sortable-header">Expiration Date</th>
           <th onClick={() => sortBy('Priority')} className="sortable-header">Priority</th>
+          <th className="sortable-header">RFID</th>
           <th className="actions">Actions</th>
         </tr>
       </thead>
@@ -65,8 +93,14 @@ export default function ShowTable({ data }) {
             <td>{new Date(card.DateAdded).toLocaleDateString()}</td>
             <td>{new Date(card.ExpirationDate).toLocaleDateString()}</td>
             <td>{card.Priority}</td>
+            <td>{card.rfid_card_id || 'Not assigned'}</td>
             <td className="actions-cell">
-              <Delete card={card} showDots={false} className="delete-button" />
+              <Delete 
+                card={card} 
+                onDelete={() => handleDelete(card.id)} 
+                showDots={false} 
+                className="delete-button" 
+              />
               {!card.IsExpired && (
                 <>
                   <StatusApdater
