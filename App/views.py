@@ -39,7 +39,7 @@ def verify_mqtt_connection():
         client.loop_start()
         
         # Connect with timeout
-        result = client.connect("localhost", 1883, 60)
+        result = client.connect("192.168.0.107", 1883, 60)
         if result != 0:
             logger.error(f"MQTT Connect failed with result code: {result}")
             return False
@@ -227,8 +227,8 @@ def create_gym_card_with_page(request):
             # Try MQTT connection with retries
             logger.info("Verifying MQTT connection...")
             connected = False
-            for attempt in range(3):
-                logger.info(f"MQTT connection attempt {attempt + 1}/3")
+            for attempt in range(10):
+                logger.info(f"MQTT connection attempt {attempt + 1}/10")
                 if verify_mqtt_connection():
                     connected = True
                     logger.info("MQTT connection successful")
@@ -237,10 +237,10 @@ def create_gym_card_with_page(request):
                 time.sleep(1)
                 
             if not connected:
-                logger.error("Failed to connect to MQTT broker after 3 attempts")
+                logger.error("Failed to connect to MQTT broker after 10 attempts")
                 return JsonResponse({
                     'status': 'error',
-                    'message': 'Unable to connect to MQTT broker after 3 attempts. Please check if Mosquitto service is running.'
+                    'message': 'Unable to connect to MQTT broker after 10 attempts. Please check if Mosquitto service is running.'
                 }, status=503)
 
             logger.info("Parsing request data...")
@@ -271,7 +271,7 @@ def create_gym_card_with_page(request):
             def mqtt_handler():
                 nonlocal client
                 retry_count = 0
-                max_retries = 3
+                max_retries = 10
                 logger.info("Starting MQTT handler...")
 
                 while retry_count < max_retries:
@@ -352,7 +352,7 @@ def create_gym_card_with_page(request):
                         client.on_disconnect = on_disconnect
 
                         logger.info("Connecting to MQTT broker...")
-                        client.connect("localhost", 1883, 60)
+                        client.connect("192.168.0.107", 1883, 60)
                         client.loop_start()
                         logger.info("MQTT client loop started")
                         
@@ -662,29 +662,47 @@ def search_gym_card(request):
             data = json.loads(request.body)
             search_by = data.get('search_by')
             search_term = data.get('search_term')
+            
+            if not search_by or not search_term:
+                return JsonResponse({
+                    'status': 'error',
+                    'message': 'search_by and search_term are required'
+                }, status=400)
+
             gym_cards = GymCard.objects.all()
             gym_cards_data = []
 
             for card in gym_cards:
-                gym_cards_data.append({
+                card_data = {
                     'id': card.id,
                     'Title': card.title,
+                    'rfid_card_id': card.rfid_card_id,
                     'Description': card.description,
                     'DateAdded': card.date_added,
                     'ExpirationDate': card.expiration_date,
                     'Status': card.status,
                     'Priority': card.priority,
-                })
+                }
+                gym_cards_data.append(card_data)
 
             search_results = []
             for card in gym_cards_data:
-                if search_by in card and search_term in card[search_by]:
-                    search_results.append(card)
+                if search_by in card and card[search_by]:  # Check if field exists and has value
+                    if str(card[search_by]).lower().find(str(search_term).lower()) != -1:
+                        search_results.append(card)
 
             return JsonResponse({'gym_cards': search_results}, safe=False)
+            
         except json.JSONDecodeError:
-            return JsonResponse({'status': 'error', 'message': 'Invalid JSON'}, status=400)
-    return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
+            return JsonResponse({
+                'status': 'error',
+                'message': 'Invalid JSON'
+            }, status=400)
+            
+    return JsonResponse({
+        'status': 'error',
+        'message': 'Invalid request method'
+    }, status=400)
 
 @csrf_exempt
 @cache_page(5)  # Cache for 5 seconds
