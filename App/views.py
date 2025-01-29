@@ -638,3 +638,111 @@ def index(request):
         Rendered index.html template
     """
     return render(request, 'index.html')
+
+
+# @csrf_exempt
+# def handle_rfid(request):
+#     """
+#     Handles all RFID card operations
+#
+#     Args:
+#         request: HTTP POST request with JSON body containing:
+#             - card_id: str (RFID card ID)
+#             - action: str ('check', 'create', 'delete')
+#             - data: dict (optional, additional data for create)
+#
+#     Returns:
+#         JsonResponse: Operation result or error message
+#     """
+#     if request.method == 'POST':
+#         try:
+#             data = json.loads(request.body)
+#             card_id = data.get('card_id')
+#             action = data.get('action')
+#             additional_data = data.get('data', {})
+#
+#             if not card_id or not action:
+#                 return JsonResponse({
+#                     'status': 'error',
+#                     'message': 'Missing card_id or action'
+#                 }, status=400)
+#
+#             # Handle different actions
+#             if action == 'check':
+#                 try:
+#                     gym_card = GymCard.objects.get(rfid_id=card_id)
+#                     return JsonResponse({
+#                         'status': 'success',
+#                         'exists': True,
+#                         'card_info': {
+#                             'id': gym_card.id,
+#                             'title': gym_card.title,
+#                             'status': gym_card.status,
+#                             'is_expired': gym_card.is_expired
+#                         }
+#                     })
+#                 except GymCard.DoesNotExist:
+#                     return JsonResponse({
+#                         'status': 'success',
+#                         'exists': False
+#                     })
+#
+#             elif action == 'create':
+#                 if not additional_data.get('title'):
+#                     return JsonResponse({
+#                         'status': 'error',
+#                         'message': 'Missing title for new card'
+#                     }, status=400)
+#
+#                 gym_card = GymCard.objects.create(
+#                     rfid_id=card_id,
+#                     title=additional_data.get('title'),
+#                     description=additional_data.get('description', ''),
+#                     expiration_date=additional_data.get('expiration_date',
+#                                                         timezone.now() + timezone.timedelta(days=365)),
+#                     status='active',
+#                     priority=additional_data.get('priority', 0),
+#                     is_expired=False
+#                 )
+#
+#                 return JsonResponse({
+#                     'status': 'success',
+#                     'message': 'Card created successfully',
+#                     'card_id': gym_card.id
+#                 })
+#
+#             elif action == 'delete':
+#                 try:
+#                     gym_card = GymCard.objects.get(rfid_id=card_id)
+#                     gym_card.delete()
+#                     return JsonResponse({
+#                         'status': 'success',
+#                         'message': 'Card deleted successfully'
+#                     })
+#                 except GymCard.DoesNotExist:
+#                     return JsonResponse({
+#                         'status': 'error',
+#                         'message': 'Card not found'
+#                     }, status=404)
+#
+#             else:
+#                 return JsonResponse({
+#                     'status': 'error',
+#                     'message': 'Invalid action'
+#                 }, status=400)
+#
+#         except json.JSONDecodeError:
+#             return JsonResponse({
+#                 'status': 'error',
+#                 'message': 'Invalid JSON'
+#             }, status=400)
+#         except Exception as e:
+#             return JsonResponse({
+#                 'status': 'error',
+#                 'message': str(e)
+#             }, status=500)
+#
+#     return JsonResponse({
+#         'status': 'error',
+#         'message': 'Invalid request method'
+#     }, status=405)
